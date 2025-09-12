@@ -75,18 +75,25 @@ int main () {
     auto& cmp_lif_1 = entity_manager.addComponent<ComponentLife>(e1);
     */
     
-    Slotmap<bool> slotmap(10);
+    Slotmap<int> slotmap(10);
 
-    slotmap.push_back(std::move(true));
-    slotmap.push_back(std::move(true));
-    slotmap.push_back(std::move(false));
-    slotmap.push_back(std::move(true));
-    slotmap.push_back(std::move(true));
-    slotmap.push_back(std::move(true));
-    slotmap.push_back(std::move(false));
-    slotmap.push_back(std::move(true));
-    slotmap.push_back(std::move(false));
-    
+    slotmap.push_back(std::move(3));
+    slotmap.push_back(std::move(4));
+    slotmap.push_back(std::move(8));
+    slotmap.push_back(std::move(12));
+    slotmap.push_back(std::move(3));
+    slotmap.push_back(std::move(6));
+    slotmap.push_back(std::move(9));
+    slotmap.push_back(std::move(1));
+    slotmap.push_back(std::move(2));
+
+    slotmap.print();
+
+    Key k;
+    k.gen_ = 0;
+    k.idx_ = 6;
+    slotmap.remove(k);
+
     slotmap.print();
     /*
     entity_manager.printPoolComponents();

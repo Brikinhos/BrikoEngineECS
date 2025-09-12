@@ -44,8 +44,14 @@
         }
        
         void print() const noexcept {
+            
             std::cout << "FREELIST: " << freelist_ << "\n";
-            std::cout << "SIZE: " << size_ << "\n";
+            std::cout << "SIZE: " << size_ << "\t";
+            int i = 0;
+            for (auto& index : indices_) {
+                std::cout << "\t" << i++;
+            }
+            std::cout << "\n";
             std::cout << "INDICES:\t";
             for (auto& index : indices_) {
                 std::cout << "ID:  " << index.idx_ << "\t";
@@ -144,7 +150,7 @@
         void initiateIndexes() noexcept {
             TypeInt i {0};
             for (auto& index : indices_) {
-                index.idx_ = i++;
+                index.idx_ = ++i;
                 index.gen_ = 0;
             }
         };
