@@ -48,7 +48,7 @@ int main () {
         std::uint64_t l {};
     };
     
-    
+    /*
     //Creamos el Entity Manager
     EntityManager entity_manager;
     //Creamos una entidad
@@ -73,12 +73,25 @@ int main () {
     
     auto& cmp_lif_0 = entity_manager.addComponent<ComponentLife>(e0);
     auto& cmp_lif_1 = entity_manager.addComponent<ComponentLife>(e1);
+    */
     
+    Slotmap<bool> slotmap(10);
 
+    slotmap.push_back(std::move(true));
+    slotmap.push_back(std::move(true));
+    slotmap.push_back(std::move(false));
+    slotmap.push_back(std::move(true));
+    slotmap.push_back(std::move(true));
+    slotmap.push_back(std::move(true));
+    slotmap.push_back(std::move(false));
+    slotmap.push_back(std::move(true));
+    slotmap.push_back(std::move(false));
     
-    
+    slotmap.print();
+    /*
     entity_manager.printPoolComponents();
     
     //entity_manager.printEntityComponents();
     entity_manager.printEntities();   
+    */
 }

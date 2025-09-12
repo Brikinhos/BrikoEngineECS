@@ -69,7 +69,7 @@ struct EntityManager {
         //Obtenemos el puntero al vector del tipo correspondiente haciendo downcasting
         Slotmap<TypeComponent>* ptr_slotmap = static_cast<Slotmap<TypeComponent>*>(pool_components_[id_type_component].get());
         //Movemos el componente al vector
-        Key key = ptr_slotmap->push_back(component);
+        Key key = ptr_slotmap->push_back(std::move(component));
         //Añadimos el id del tipo y un puntero del componente a la tabla de la entidad, para una búsqueda más rápida en los sitemas
         m_entity_components_[id_entity][id_type_component] = key;
         //Devolvemos referencia del componente, ya dentro del vector
