@@ -74,6 +74,8 @@ int main () {
     auto& cmp_lif_0 = entity_manager.addComponent<ComponentLife>(e0);
     auto& cmp_lif_1 = entity_manager.addComponent<ComponentLife>(e1);
     
+
+    
     
     entity_manager.printPoolComponents();
     

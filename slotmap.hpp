@@ -21,10 +21,10 @@
     struct Slotmap : ISlotmap {
 
         explicit Slotmap (TypeInt capacity) : CAPACITY_(capacity) {
-
+            //En un futuro tendrá que ser reserve para más eficiencia, ya veremos cómo lo hacemos
             indices_.resize(capacity);
-            data_.resize(capacity);
-            erase_.resize(capacity);
+            data_.reserve(capacity);
+            erase_.reserve(capacity);
             initiateIndexes();
         };
 
@@ -81,9 +81,9 @@
             //Modificar la key en el primer slot libre para que apunte a la posición del dato
             indices_[nowfreelist].idx_ = size_;
             //Insertamos el dato
-            data_[size_] = std::move(data);
+            data_.push_back(std::move(data));
             //Asociamos la posición del Slot relacionado con el dato en erase_
-            erase_[size_] = nowfreelist;
+            erase_.push_back(nowfreelist);
             //Modificamos la posición del siguiente hueco libre para datos
             ++size_;
             //Devolvemos la key al usuario
@@ -105,12 +105,18 @@
             slot.gen_++;
 
             //Movemos el último dato y el dato asociado en erase_ al hueco libre
-            data_[id_slot_freed]  = data_[size_-1];
-            erase_[id_slot_freed] = erase_[size_-1];
+            data_[id_slot_freed]  = data_[size_-1]; //Quizás std::move, evitamos copia
+            erase_[id_slot_freed] = erase_[size_-1];//Aquí da igual, es un tipo primitivo
+
+            //Eliminamos el último dato del vector
+            data_.pop_back();
             
-            //Modificamos el slot al que apuntaba el dato más a la izquierda para que apunte en la nueva posición
+            //Modificamos el slot al que apuntaba el dato más a la derecha para que apunte en la nueva posición
             auto pos_slot_moved = erase_[id_slot_freed];
             indices_[pos_slot_moved].idx_ = id_slot_freed;
+
+            //Eliminamos el elemento de erase más a la derecha
+            erase_.pop_back();
 
             //Cambiamos el slot que apuntaba el dato a liberar para que apunte al siguiente slot libre, y también que freelist_ apunte a este slot
             slot.idx_ = freelist_;
