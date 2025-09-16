@@ -4,6 +4,9 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/ecs",
+                "${workspaceFolder}/game",
+                "${workspaceFolder}/game/components",
                 "C:/mingw64/include/c++/14.2.0",
                 "C:/mingw64/x86_64-w64-mingw32/include",
                 "C:/mingw64/include"
@@ -14,7 +17,7 @@
                 "_UNICODE"
             ],
             "cStandard": "c17",
-            "cppStandard": "c++20",
+            "cppStandard": "c++23",
             "intelliSenseMode": "windows-gcc-x64",
             "compilerPath": "C:/mingw64/bin/g++.exe"
         }
