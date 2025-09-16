@@ -1,4 +1,6 @@
 #pragma once
-#include <cstdint>
+#include <cstddef>
 
-using TypeInt = std::size_t;
+namespace ecs {
+    using TypeInt = std::size_t;
+}

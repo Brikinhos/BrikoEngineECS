@@ -1,39 +1,14 @@
-#include <cstdint>
-#include "entitymanager.hpp"
-#include "component.hpp"
-
+#include "ecs/entitymanager.hpp"
+#include "game/components/position.cpp"
+#include "game/components/velocity.cpp"
+#include "game/components/life.cpp"
 
 struct Key;
 
 int main () {      
     
-    struct ComponentVelocity : Component<ComponentVelocity> {
-        explicit ComponentVelocity (TypeInt id_entity)
-        : Component(id_entity)
-        {}
-        
-        std::size_t sizeOfComponentInBytes () override {
-            return sizeof(*this);
-        }
-        
-        std::uint64_t v {};
-    };
-    
-    struct ComponentLife : Component<ComponentLife> {
-        explicit ComponentLife (TypeInt id_entity)
-        : Component(id_entity)
-        {}
-        
-        std::size_t sizeOfComponentInBytes () override {
-            return sizeof(*this);
-        }
-        
-        std::uint64_t l {};
-    };
-    
-    
     //Creamos el Entity Manager
-    EntityManager entity_manager;
+    ecs::EntityManager entity_manager(10);
     //Creamos una entidad
     std::cout << "OK\n";
     auto& e0 = entity_manager.createEntity();
@@ -47,16 +22,12 @@ int main () {
     auto& cmp_pos_0 = entity_manager.addComponent<ComponentPosition>(e0);
     auto& cmp_pos_1 = entity_manager.addComponent<ComponentPosition>(e1);
     auto& cmp_pos_2 = entity_manager.addComponent<ComponentPosition>(e2);
-    auto& cmp_pos_3 = entity_manager.addComponent<ComponentPosition>(e3);
+    auto& cmp_pos_3 = entity_manager.addComponent<ComponentPosition>(e3);    
     
-    auto& cmp_vel_0 = entity_manager.addComponent<ComponentVelocity>(e0);
     auto& cmp_vel_1 = entity_manager.addComponent<ComponentVelocity>(e1);
-    auto& cmp_vel_2 = entity_manager.addComponent<ComponentVelocity>(e2);
     
     auto& cmp_lif_0 = entity_manager.addComponent<ComponentLife>(e0);
     auto& cmp_lif_1 = entity_manager.addComponent<ComponentLife>(e1);
-
-
     
     entity_manager.printPoolComponents();
     

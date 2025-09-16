@@ -1,8 +1,8 @@
 #include "../../ecs/component.hpp"
 #include "../../ecs/aliases.hpp"
 
-struct ComponentPosition : ecs::Component<ComponentPosition> {
-    explicit ComponentPosition (ecs::TypeInt id_entity)
+struct ComponentVelocity : ecs::Component<ComponentVelocity> {
+    explicit ComponentVelocity (ecs::TypeInt id_entity)
         : Component(id_entity)
     {}
     
@@ -10,6 +10,5 @@ struct ComponentPosition : ecs::Component<ComponentPosition> {
         return sizeof(*this);
     }
     
-    ecs::TypeInt x {};
-    ecs::TypeInt y {};
+    ecs::TypeInt v {};
 };

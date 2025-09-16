@@ -1,8 +1,8 @@
     #pragma once
     #include <iostream>
     #include <vector>
-    #include "aliases.hpp"
     
+    using TypeInt = std::size_t;
 
     struct Key {
         TypeInt idx_ {0};
