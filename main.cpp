@@ -1,4 +1,3 @@
-#include "slotmap.hpp"
 #include <cstdint>
 #include "entitymanager.hpp"
 
@@ -57,7 +56,6 @@ int main () {
     std::cout << "OK\n";
     
     //Asignamos un componente
-    auto& cmp_prueba = entity_manager.addComponent<ComponentPosition>(entity_manager.createEntity());
     auto& cmp_pos_0 = entity_manager.addComponent<ComponentPosition>(e0);
     auto& cmp_pos_1 = entity_manager.addComponent<ComponentPosition>(e1);
     auto& cmp_pos_2 = entity_manager.addComponent<ComponentPosition>(e2);

@@ -1,15 +1,12 @@
 #pragma once
 
 #include <unordered_map>
-#include <cstdint>
 #include <vector>
 #include "slotmap.hpp"
 #include "aliases.hpp"
-#include "component.hpp"
 #include <memory>
 #include "entity.hpp"
 #include <cstdio>
-#include <limits>
 
 
 using IDTypeComponent = TypeInt;
@@ -75,6 +72,9 @@ struct EntityManager {
         //Devolvemos referencia del componente, ya dentro del vector
         return ptr_slotmap->getData(key);
     }
+
+    template <typename TypeComponent>
+    TypeComponent& addComponent(Entity&&) = delete;
 /*
 template <typename TypeComponent>
 TypeComponent* getComponentFromEntityComponentsTable (const Entity& entity) const noexcept {
