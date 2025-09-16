@@ -18,10 +18,6 @@ int main () {
         
         std::uint64_t x {};
         std::uint64_t y {};
-        std::uint64_t a {};
-        std::uint64_t b {};
-        std::uint64_t c {};
-        std::uint64_t d {};
     };
     
     struct ComponentVelocity : Component<ComponentVelocity> {
@@ -48,7 +44,7 @@ int main () {
         std::uint64_t l {};
     };
     
-    /*
+    
     //Creamos el Entity Manager
     EntityManager entity_manager;
     //Creamos una entidad
@@ -61,7 +57,7 @@ int main () {
     std::cout << "OK\n";
     
     //Asignamos un componente
-    
+    auto& cmp_prueba = entity_manager.addComponent<ComponentPosition>(entity_manager.createEntity());
     auto& cmp_pos_0 = entity_manager.addComponent<ComponentPosition>(e0);
     auto& cmp_pos_1 = entity_manager.addComponent<ComponentPosition>(e1);
     auto& cmp_pos_2 = entity_manager.addComponent<ComponentPosition>(e2);
@@ -73,32 +69,12 @@ int main () {
     
     auto& cmp_lif_0 = entity_manager.addComponent<ComponentLife>(e0);
     auto& cmp_lif_1 = entity_manager.addComponent<ComponentLife>(e1);
-    */
+
+
     
-    Slotmap<int> slotmap(10);
-
-    slotmap.push_back(std::move(3));
-    slotmap.push_back(std::move(4));
-    slotmap.push_back(std::move(8));
-    slotmap.push_back(std::move(12));
-    slotmap.push_back(std::move(3));
-    slotmap.push_back(std::move(6));
-    slotmap.push_back(std::move(9));
-    slotmap.push_back(std::move(1));
-    slotmap.push_back(std::move(2));
-
-    slotmap.print();
-
-    Key k;
-    k.gen_ = 0;
-    k.idx_ = 6;
-    slotmap.remove(k);
-
-    slotmap.print();
-    /*
     entity_manager.printPoolComponents();
     
     //entity_manager.printEntityComponents();
     entity_manager.printEntities();   
-    */
+    
 }

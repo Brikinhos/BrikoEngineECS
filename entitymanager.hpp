@@ -144,7 +144,7 @@ TypeComponent* getComponentFromEntityComponentsTable (const Entity& entity) cons
     }
     
 private:
-    const TypeInt MAX_ELEMENTS_ {1000};
+    const TypeInt MAX_ELEMENTS_ {10};
     std::vector<Entity> v_entities_ {};  
     std::unordered_map<IDTypeComponent, std::unique_ptr<ISlotmap>> pool_components_;
     std::unordered_map<TypeInt, std::unordered_map<TypeInt, Key>> m_entity_components_;

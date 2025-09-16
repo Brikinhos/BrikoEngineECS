@@ -62,9 +62,11 @@
             }
             std::cout << "\n";
             std::cout << "DATA:\t\t";
+            
             for (auto& data : data_) {
-                std::cout << "DAT: " << data << "\t";
+                std::cout << "DAT: " << &data << "\t";
             }
+            
             std::cout << "\n";
             std::cout << "ERASE:\t\t";
             for (auto& erase : erase_) {
@@ -93,6 +95,7 @@
             //Modificamos la posición del siguiente hueco libre para datos
             ++size_;
             //Devolvemos la key al usuario
+            
             return k;
         }
 
