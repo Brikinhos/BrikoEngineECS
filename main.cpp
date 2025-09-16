@@ -1,23 +1,11 @@
 #include <cstdint>
 #include "entitymanager.hpp"
+#include "component.hpp"
 
 
 struct Key;
 
 int main () {      
-    
-    struct ComponentPosition : Component<ComponentPosition> {
-        explicit ComponentPosition (TypeInt id_entity)
-        : Component(id_entity)
-        {}
-        
-        std::size_t sizeOfComponentInBytes () override {
-            return sizeof(*this);
-        }
-        
-        std::uint64_t x {};
-        std::uint64_t y {};
-    };
     
     struct ComponentVelocity : Component<ComponentVelocity> {
         explicit ComponentVelocity (TypeInt id_entity)

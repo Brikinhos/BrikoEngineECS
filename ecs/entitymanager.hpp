@@ -52,7 +52,7 @@ struct EntityManager {
     
     const Entity& createEntity() {
         return v_entities_.emplace_back();
-    };
+    }
 
     template <typename TypeComponent>
     TypeComponent& addComponent(const Entity& entity) {
