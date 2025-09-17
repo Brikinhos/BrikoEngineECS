@@ -7,15 +7,10 @@
 #include <memory>
 #include "entity.hpp"
 #include <cstdio>
-#include <type_traits>
-
 
 namespace ecs {
 
-    template <typename TypeComponent>
-    struct Component;
     using IDTypeComponent = TypeInt;
-
     //template <typename TypeComponent>
     //using VectorComponent = std::vector<Component<TypeComponent>>;
 
@@ -63,8 +58,6 @@ namespace ecs {
 
         template <typename TypeComponent>
         TypeComponent& addComponent(const Entity& entity) {
-            //Comprobamos que TypeComponent sea hija de Component<TypeComponent>
-            static_assert(std::is_base_of<Component<TypeComponent>, TypeComponent>::value, "El componente no hereda de Component<TypeComponent>");
             auto id_entity = entity.getEntityID();
             TypeComponent component (id_entity);
             IDTypeComponent id_type_component = TypeComponent::getIDTypeComponent();  
@@ -84,7 +77,6 @@ namespace ecs {
 
         template <typename TypeComponent>
         TypeComponent& addComponent(Entity&&) = delete;
-        
     /*
     template <typename TypeComponent>
     TypeComponent* getComponentFromEntityComponentsTable (const Entity& entity) const noexcept {
@@ -131,16 +123,19 @@ namespace ecs {
                 std::cout << "\n";
             }
         }
-        
+
+        /*
         void printEntityComponents () const noexcept {
             for (auto const& [key1, val1] : m_entity_components_) {
                 std::cout << "ID Entity: " << key1 << "\n";
                 for (auto const& [key2, val2] : val1) {
                     std::cout << "  ID Type Component: " << key2 << "\t";
-                    std::cout << "  Key for SlotMap:\t Idx: " << val2.idx_ << "\tGen: " << val2.gen_ << "\n";
+                    std::cout << "  Component Address: " << val2 << "\t";
+                    std::cout << "  Size Component: " << sizeof(*val2) << "\n";
                 }
             }
-        }        
+        }
+        */
 
         void printEntities () const noexcept {
             for (const auto& entity : v_entities_) {
@@ -150,7 +145,7 @@ namespace ecs {
         }
 
     private:
-        const TypeInt MAX_ELEMENTS_ {};
+        const TypeInt MAX_ELEMENTS_ {10};
         std::vector<Entity> v_entities_ {};  
         std::unordered_map<IDTypeComponent, std::unique_ptr<ISlotmap>> pool_components_;
         std::unordered_map<TypeInt, std::unordered_map<TypeInt, Key>> m_entity_components_;
