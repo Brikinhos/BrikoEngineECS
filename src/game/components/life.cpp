@@ -1,5 +1,5 @@
-#include "../../ecs/component.hpp"
-#include "../../ecs/aliases.hpp"
+#include "ecs/component.hpp"
+#include "/ecs/aliases.hpp"
 
 struct ComponentLife : ecs::Component<ComponentLife> {
     explicit ComponentLife (ecs::TypeInt id_entity)
