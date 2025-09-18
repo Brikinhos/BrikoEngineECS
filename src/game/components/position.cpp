@@ -1,5 +1,5 @@
-#include "../../ecs/component.hpp"
-#include "../../ecs/aliases.hpp"
+#include "ecs/component.hpp"
+#include "ecs/aliases.hpp"
 
 struct ComponentPosition : ecs::Component<ComponentPosition> {
     explicit ComponentPosition (ecs::TypeInt id_entity)

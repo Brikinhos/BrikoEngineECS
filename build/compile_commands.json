@@ -1,25 +1,25 @@
 [
 {
   "directory": "E:/Proyectos SFML/BrikoEngineECS/build",
-  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\components\\life.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\components\\life.cpp\"",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -std=c++23 -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\components\\life.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\components\\life.cpp\"",
   "file": "E:/Proyectos SFML/BrikoEngineECS/src/game/components/life.cpp",
   "output": "CMakeFiles/BrikoEngineECS.dir/src/game/components/life.cpp.obj"
 },
 {
   "directory": "E:/Proyectos SFML/BrikoEngineECS/build",
-  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\components\\position.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\components\\position.cpp\"",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -std=c++23 -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\components\\position.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\components\\position.cpp\"",
   "file": "E:/Proyectos SFML/BrikoEngineECS/src/game/components/position.cpp",
   "output": "CMakeFiles/BrikoEngineECS.dir/src/game/components/position.cpp.obj"
 },
 {
   "directory": "E:/Proyectos SFML/BrikoEngineECS/build",
-  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\components\\velocity.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\components\\velocity.cpp\"",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -std=c++23 -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\components\\velocity.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\components\\velocity.cpp\"",
   "file": "E:/Proyectos SFML/BrikoEngineECS/src/game/components/velocity.cpp",
   "output": "CMakeFiles/BrikoEngineECS.dir/src/game/components/velocity.cpp.obj"
 },
 {
   "directory": "E:/Proyectos SFML/BrikoEngineECS/build",
-  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -std=gnu++23 -o CMakeFiles\\BrikoEngineECS.dir\\src\\main.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\main.cpp\"",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -std=c++23 -o CMakeFiles\\BrikoEngineECS.dir\\src\\main.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\main.cpp\"",
   "file": "E:/Proyectos SFML/BrikoEngineECS/src/main.cpp",
   "output": "CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj"
 }

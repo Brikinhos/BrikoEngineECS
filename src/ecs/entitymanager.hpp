@@ -2,7 +2,7 @@
 
 #include <unordered_map>
 #include <vector>
-#include "../datastructs/slotmap.hpp"
+#include "datastructs/slotmap.hpp"
 #include "aliases.hpp"
 #include <memory>
 #include "entity.hpp"
@@ -124,18 +124,17 @@ namespace ecs {
             }
         }
 
-        /*
+        
         void printEntityComponents () const noexcept {
             for (auto const& [key1, val1] : m_entity_components_) {
                 std::cout << "ID Entity: " << key1 << "\n";
                 for (auto const& [key2, val2] : val1) {
                     std::cout << "  ID Type Component: " << key2 << "\t";
-                    std::cout << "  Component Address: " << val2 << "\t";
-                    std::cout << "  Size Component: " << sizeof(*val2) << "\n";
+                    std::cout << "  Key: idx: " << val2.idx_ << "\tgen: " << val2.gen_ << "\n";
                 }
             }
         }
-        */
+        
 
         void printEntities () const noexcept {
             for (const auto& entity : v_entities_) {
