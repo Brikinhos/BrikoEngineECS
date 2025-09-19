@@ -95,6 +95,11 @@ BrikoEngineECS_EXTERNAL_OBJECTS =
 
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/build.make
+BrikoEngineECS.exe: E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/lib/libsfml-graphics-d.a
+BrikoEngineECS.exe: E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/lib/libsfml-window-d.a
+BrikoEngineECS.exe: E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/lib/libsfml-audio-d.a
+BrikoEngineECS.exe: E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/lib/libsfml-network-d.a
+BrikoEngineECS.exe: E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/lib/libsfml-system-d.a
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/linkLibs.rsp
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/objects1.rsp
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/link.txt

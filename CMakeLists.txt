@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.15)
 # Nombre del proyecto
 project(BrikoEngineECS LANGUAGES CXX)
 
-# Usa C++20 (cámbialo si quieres otra versión)
+# Usa C++23
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -11,26 +11,42 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Genera compile_commands.json para clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Especifica la ruta de SFML si no está en el sistema
+set(SFML_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/SFML-3.0.2/lib/cmake/SFML")
+
+# Busca SFML 3 con los módulos que necesitas
+find_package(SFML 3 REQUIRED COMPONENTS Graphics Window Audio Network)
+
 # Busca recursivamente todos los .cpp en src/
 file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
 )
 
-# (Opcional) Añadimos también los headers para que aparezcan en el IDE
+# Opcional: añade también los headers para que aparezcan en el IDE
 file(GLOB_RECURSE HEADERS CONFIGURE_DEPENDS
     "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp"
 )
 
+# Define el ejecutable
 add_executable(${PROJECT_NAME}
     ${SOURCES}
-    ${HEADERS} # opcional, no compilan pero VSCode/IDE los muestra
+    ${HEADERS} # opcional, no compilan pero el IDE los muestra
 )
 
-# Incluye la carpeta src/ para que #include "loquesea.hpp" funcione
+# Incluye la carpeta src/ para los #include
 target_include_directories(${PROJECT_NAME}
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 
-# Puedes añadir flags de compilación si quieres
-# target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic)
+# Vincula SFML a tu proyecto
+target_link_libraries(${PROJECT_NAME}
+    PRIVATE
+        SFML::Graphics
+        SFML::Window
+        SFML::Audio
+        SFML::Network
+)
+
+# Flags de compilación
+target_compile_options(${PROJECT_NAME} PRIVATE -Wall -Wextra -pedantic)

@@ -1,1 +1,1 @@
--I"E:/Proyectos SFML/BrikoEngineECS/src"
+-I"E:/Proyectos SFML/BrikoEngineECS/src" -isystem "E:/Proyectos SFML/BrikoEngineECS/lib/SFML-3.0.2/include"
