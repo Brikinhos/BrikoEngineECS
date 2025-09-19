@@ -210,7 +210,7 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: \
  C:/mingw64/include/c++/14.2.0/pstl/glue_memory_defs.h \
  C:/mingw64/include/c++/14.2.0/pstl/execution_defs.h \
  E:\Proyectos\ SFML\BrikoEngineECS\src\ecs/entity.hpp \
- E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/position.cpp \
+ E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/position.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/component.hpp \
- E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/velocity.cpp \
- E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/life.cpp
+ E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/velocity.hpp \
+ E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/life.hpp

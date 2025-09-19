@@ -8,9 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "E:/Proyectos SFML/BrikoEngineECS/src/game/components/life.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/components/life.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/components/life.cpp.obj.d"
-  "E:/Proyectos SFML/BrikoEngineECS/src/game/components/position.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/components/position.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/components/position.cpp.obj.d"
-  "E:/Proyectos SFML/BrikoEngineECS/src/game/components/velocity.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/components/velocity.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/components/velocity.cpp.obj.d"
   "E:/Proyectos SFML/BrikoEngineECS/src/main.cpp" "CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj.d"
   )
 

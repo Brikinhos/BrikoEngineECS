@@ -1,7 +1,7 @@
 #include "ecs/entitymanager.hpp"
-#include "game/components/position.cpp"
-#include "game/components/velocity.cpp"
-#include "game/components/life.cpp"
+#include "game/components/position.hpp"
+#include "game/components/velocity.hpp"
+#include "game/components/life.hpp"
 
 struct Key;
 

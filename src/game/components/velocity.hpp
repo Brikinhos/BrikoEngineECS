@@ -6,9 +6,5 @@ struct ComponentVelocity : ecs::Component<ComponentVelocity> {
         : Component(id_entity)
     {}
     
-    std::size_t sizeOfComponentInBytes () override {
-        return sizeof(*this);
-    }
-    
     ecs::TypeInt v {};
 };

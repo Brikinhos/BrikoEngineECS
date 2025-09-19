@@ -6,10 +6,6 @@ struct ComponentPosition : ecs::Component<ComponentPosition> {
         : Component(id_entity)
     {}
     
-    std::size_t sizeOfComponentInBytes () override {
-        return sizeof(*this);
-    }
-    
     ecs::TypeInt x {};
     ecs::TypeInt y {};
 };

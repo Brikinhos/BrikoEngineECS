@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "BrikoEngineECS::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-BrikoEngineECS-Debug-50a118676ddbdfee9444.json",
+					"jsonFile" : "target-BrikoEngineECS-Debug-e373547756d3324e9300.json",
 					"name" : "BrikoEngineECS",
 					"projectIndex" : 0
 				}
@@ -55,6 +55,6 @@
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 7
+		"minor" : 8
 	}
 }
