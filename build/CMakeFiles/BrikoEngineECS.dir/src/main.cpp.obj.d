@@ -191,6 +191,8 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: \
  C:/mingw64/include/c++/14.2.0/istream \
  C:/mingw64/include/c++/14.2.0/bits/istream.tcc \
  E:\Proyectos\ SFML\BrikoEngineECS\src\ecs/aliases.hpp \
+ C:/mingw64/include/c++/14.2.0/utility \
+ C:/mingw64/include/c++/14.2.0/bits/stl_relops.h \
  C:/mingw64/include/c++/14.2.0/memory \
  C:/mingw64/include/c++/14.2.0/bits/stl_raw_storage_iter.h \
  C:/mingw64/include/c++/14.2.0/bits/align.h \
@@ -213,17 +215,12 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: \
  E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/position.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/component.hpp \
  E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/velocity.hpp \
- E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/life.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/BlendMode.hpp \
+ E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/collision.hpp \
+ E:\Proyectos\ SFML\BrikoEngineECS\src\game/components/sprite.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Sprite.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Export.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Config.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/CircleShape.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Shape.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Color.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Color.inl \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Drawable.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/PrimitiveType.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Rect.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/Vector2.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/Export.hpp \
@@ -234,16 +231,15 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/Vector2.inl \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Rect.inl \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/RenderStates.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/BlendMode.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/CoordinateType.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/StencilMode.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Transform.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Transform.inl \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Transformable.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/VertexArray.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Vertex.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/ConvexShape.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Font.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Glyph.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Color.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Color.inl \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Texture.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Window/GlResource.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Window/Export.hpp \
@@ -259,6 +255,14 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: \
  C:/mingw64/include/c++/14.2.0/codecvt \
  C:/mingw64/include/c++/14.2.0/bits/fs_dir.h \
  C:/mingw64/include/c++/14.2.0/bits/fs_ops.h \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/CircleShape.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Shape.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/PrimitiveType.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/VertexArray.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/ConvexShape.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Font.hpp \
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Glyph.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Image.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/RectangleShape.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/RenderTarget.hpp \
@@ -291,13 +295,10 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/Vector3.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/Vector3.inl \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Window/Event.inl \
- C:/mingw64/include/c++/14.2.0/utility \
- C:/mingw64/include/c++/14.2.0/bits/stl_relops.h \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/Clock.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Shader.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Glsl.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Glsl.inl \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Sprite.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/Text.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Graphics/VertexBuffer.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Window.hpp \
@@ -311,4 +312,5 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/FileInputStream.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/InputStream.hpp \
  E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/MemoryInputStream.hpp \
- E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/Sleep.hpp
+ E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/System/Sleep.hpp \
+ E:\Proyectos\ SFML\BrikoEngineECS\src\datastructs/circularbuffer.hpp

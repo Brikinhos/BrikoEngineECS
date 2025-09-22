@@ -1,3 +1,5 @@
+#pragma once
+
 #include "ecs/component.hpp"
 #include "ecs/aliases.hpp"
 

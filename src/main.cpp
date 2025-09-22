@@ -1,57 +1,82 @@
 #include "ecs/entitymanager.hpp"
 #include "game/components/position.hpp"
 #include "game/components/velocity.hpp"
-#include "game/components/life.hpp"
+#include "game/components/collision.hpp"
+#include "game/components/sprite.hpp"
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Window/Event.hpp>
+#include <SFML/Window/Keyboard.hpp>
+#include "datastructs/circularbuffer.hpp"
 
 struct Key;
 
 int main () {      
-    /*
     //Creamos el Entity Manager
     ecs::EntityManager entity_manager(10);
     //Creamos una entidad
-    auto& e0 = entity_manager.createEntity();
-    auto& e1 = entity_manager.createEntity();
-    auto& e2 = entity_manager.createEntity();
-    auto& e3 = entity_manager.createEntity();
-    auto& e4 = entity_manager.createEntity();
-    
-    //Asignamos un componente
-    auto& cmp_pos_0 = entity_manager.addComponent<ComponentPosition>(e0);
-    auto& cmp_pos_1 = entity_manager.addComponent<ComponentPosition>(e1);
-    auto& cmp_pos_2 = entity_manager.addComponent<ComponentPosition>(e2);
-    auto& cmp_pos_3 = entity_manager.addComponent<ComponentPosition>(e3);    
-    
-    auto& cmp_vel_1 = entity_manager.addComponent<ComponentVelocity>(e1);
-    
-    auto& cmp_lif_0 = entity_manager.addComponent<ComponentLife>(e0);
-    auto& cmp_lif_1 = entity_manager.addComponent<ComponentLife>(e1);
-    
-    entity_manager.printPoolComponents();    
-    entity_manager.printEntityComponents();
-    entity_manager.printEntities();   
-    */
+    auto& player = entity_manager.createEntity();
 
-    
+    auto& col = entity_manager.addComponent<ComponentCollision>(player);
+    col.box.coord_a_ = {0, 0};
+    col.box.coord_b_ = {50, 50};
 
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "SFML 3 + CMake + VSCode!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    auto& pos = entity_manager.addComponent<ComponentPosition>(player);
+    pos.x = 200;
+    pos.y = 200;
+
+    auto& vel = entity_manager.addComponent<ComponentVelocity>(player);
+    vel.velocity = 200;
+
+    auto& spr = entity_manager.addComponent<ComponentSprite>(player);
+    auto yes = spr.texture.loadFromFile("E:/Proyectos SFML/BrikoEngineECS/game/assets/basun_soldier.png");
+    std::cout << yes;
+    spr.sprite.setTexture(spr.texture);
+    spr.sprite.setTextureRect({{0, 0},{30, 52}});
+    spr.sprite.setPosition({200, 200});
+    spr.sprite.setScale({4, 4});
+    
+        
+
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "BASÚN 2");
+    window.setFramerateLimit(120);
+    
+    float speed = 200.f; // píxeles por segundo
+    sf::Clock clock;
+
+    sf::RectangleShape rect;
+    rect.setSize({50, 100});
+    rect.setPosition({200, 200});
 
     while (window.isOpen()) {
-        // pollEvent ahora devuelve un std::optional<sf::Event>
         while (auto event = window.pollEvent()) {
-            // event es un std::optional<sf::Event>, por lo que se accede con *
             if (event->is<sf::Event::Closed>())
                 window.close();
         }
 
-        window.clear();
-        window.draw(shape);
+        float dt = clock.restart().asSeconds();
+
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
+            rect.move({0, -speed * dt});
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
+            rect.move({0, speed * dt});
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
+            rect.move({-speed * dt, 0});
+        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+            rect.move({speed * dt, 0});
+        }
+
+        window.clear(sf::Color::Yellow);
+        window.draw(spr.sprite);
         window.display();
     }
-
+    
     return 0;
 }
 

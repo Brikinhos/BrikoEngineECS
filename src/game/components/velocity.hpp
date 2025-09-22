@@ -1,3 +1,5 @@
+#pragma once
+
 #include "ecs/component.hpp"
 #include "ecs/aliases.hpp"
 
@@ -6,5 +8,5 @@ struct ComponentVelocity : ecs::Component<ComponentVelocity> {
         : Component(id_entity)
     {}
     
-    ecs::TypeInt v {};
+    ecs::TypeInt velocity {};
 };

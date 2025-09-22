@@ -311,11 +311,13 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: E:/Proyectos\ SFML/BrikoEngineEC
   E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/include/SFML/Window/WindowHandle.hpp \
   E:/Proyectos\ SFML/BrikoEngineECS/src/datastructs/slotmap.hpp \
   E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/component.hpp \
+  E:/Proyectos\ SFML/BrikoEngineECS/src/datastructs/circularbuffer.hpp \
   E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/aliases.hpp \
   E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/entity.hpp \
   E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/entitymanager.hpp \
-  E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/life.hpp \
+  E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/collision.hpp \
   E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/position.hpp \
+  E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/sprite.hpp \
   E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/velocity.hpp
 
 
@@ -364,6 +366,8 @@ C:/mingw64/include/c++/14.2.0/cwchar:
 C:/mingw64/include/c++/14.2.0/bits/alloc_traits.h:
 
 C:/mingw64/include/c++/14.2.0/bits/memoryfwd.h:
+
+E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/collision.hpp:
 
 C:/mingw64/include/c++/14.2.0/bits/basic_string.tcc:
 
@@ -941,12 +945,14 @@ E:/Proyectos\ SFML/BrikoEngineECS/src/datastructs/slotmap.hpp:
 
 E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/component.hpp:
 
+E:/Proyectos\ SFML/BrikoEngineECS/src/datastructs/circularbuffer.hpp:
+
 E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/aliases.hpp:
 
 E:/Proyectos\ SFML/BrikoEngineECS/src/ecs/entitymanager.hpp:
 
-E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/life.hpp:
-
 E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/position.hpp:
+
+E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/sprite.hpp:
 
 E:/Proyectos\ SFML/BrikoEngineECS/src/game/components/velocity.hpp:
