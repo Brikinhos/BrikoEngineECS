@@ -1,29 +1,22 @@
 #include "game/systems/rendertext.hpp"
-#include "game/components/input.hpp"
 #include "rendertext.hpp"
 #include "game/components/textinfo.hpp"
+#include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include <SFML/Graphics/RenderWindow.hpp>
 #include <sstream>
 
 void SystemRenderText::update (ecs::EntityManager& entity_manager, sf::RenderWindow& window) const noexcept {
     
-    std::cout << "HOLA";
     auto& v_cmp_textinfo = entity_manager.getComponentVectorByType<ComponentTextInfo>();
-    std::cout << "HOLA2";
+    std::cout << "data slotmap textinfo: " << &v_cmp_textinfo;
     for (auto& cmp_textinfo : v_cmp_textinfo) {
-        std::cout << "HOLA3";
         auto* cmp_input = entity_manager.getComponentFromEntityID<ComponentInput>(cmp_textinfo.getEntityID());
         if (cmp_input) {
-            std::cout << "HOLA4";
             //cmp_textinfo.text.setString(getSSComponentInput(*cmp_input).str());
             cmp_textinfo.text.setString("TEXT");
-            std::cout << "HOLA5";
             auto& text = cmp_textinfo.text;
             window.draw(text);
-            std::cout << "HOLA6";
-        }
-        
+        }        
     }
 }
 

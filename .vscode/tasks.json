@@ -1,25 +1,21 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "Build with CMake",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--build",
-                "build"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-            "problemMatcher": ["$gcc"]
-        },
-        {
-            "label": "Run Program",
-            "type": "shell",
-            "command": ".\\build\\BrikoEngineECS.exe",
-            "group": "none"
-        }
-    ]
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "compilar",
+      "type": "shell",
+      "command": "cmake",
+      "args": [
+        "--build",
+        "build",
+        "--config",
+        "Debug"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
 }

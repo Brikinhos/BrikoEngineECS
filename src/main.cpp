@@ -44,9 +44,7 @@ int main () {
     spr.sprite.setScale({4, 4});
     
     auto& inp = entity_manager.addComponent<ComponentInput>(player);
-    auto& txt = entity_manager.addComponent<ComponentTextInfo>(player);
-    
-       
+    auto& txt = entity_manager.addComponent<ComponentTextInfo>(player);       
 
     sf::RenderWindow window(sf::VideoMode({800, 600}), "BASÚN 2");
     window.setFramerateLimit(120);
@@ -59,6 +57,9 @@ int main () {
     sf::RectangleShape rect;
     rect.setSize({50, 100});
     rect.setPosition({200, 200});
+
+    entity_manager.printEntityComponents();
+    entity_manager.printPoolComponents();
 
     while (window.isOpen()) {
         while (auto event = window.pollEvent()) {
@@ -79,10 +80,7 @@ int main () {
         }
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
             rect.move({speed * dt, 0});
-        }
-
-        entity_manager.printEntityComponents();
-        entity_manager.printPoolComponents();
+        }        
 
         window.clear(sf::Color::Yellow);
         sys_text.update(entity_manager, window);
