@@ -138,6 +138,10 @@
             return data_;
         }
 
+        std::vector<TypeData>& getDataVector() {
+            return data_;
+        }
+
         TypeData& getData (Key key) {
             if (key.gen_ != indices_[key.idx_].gen_)
                 throw std::runtime_error("La key no apunta a un índice que contenga un dato");

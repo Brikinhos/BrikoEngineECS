@@ -10,5 +10,5 @@
 struct SystemRenderText {
     void update (ecs::EntityManager& entity_manager, sf::RenderWindow& window) const noexcept;
 private:
-    std::stringstream printInput (ComponentInput& cmp_input);
+    std::stringstream getSSComponentInput (ComponentInput& cmp_input) const;
 };

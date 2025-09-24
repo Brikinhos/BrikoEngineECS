@@ -2,20 +2,32 @@
 #include "game/components/input.hpp"
 #include "rendertext.hpp"
 #include "game/components/textinfo.hpp"
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <sstream>
 
 void SystemRenderText::update (ecs::EntityManager& entity_manager, sf::RenderWindow& window) const noexcept {
-
+    
+    std::cout << "HOLA";
     auto& v_cmp_textinfo = entity_manager.getComponentVectorByType<ComponentTextInfo>();
+    std::cout << "HOLA2";
     for (auto& cmp_textinfo : v_cmp_textinfo) {
-        entity_manager.
-        cmp_textinfo.text.setString(printInput())
-        window.draw(cmp_textinfo.text);
+        std::cout << "HOLA3";
+        auto* cmp_input = entity_manager.getComponentFromEntityID<ComponentInput>(cmp_textinfo.getEntityID());
+        if (cmp_input) {
+            std::cout << "HOLA4";
+            //cmp_textinfo.text.setString(getSSComponentInput(*cmp_input).str());
+            cmp_textinfo.text.setString("TEXT");
+            std::cout << "HOLA5";
+            auto& text = cmp_textinfo.text;
+            window.draw(text);
+            std::cout << "HOLA6";
+        }
+        
     }
-
 }
 
-std::stringstream SystemRenderText::printInput(ComponentInput &cmp_input) {
+std::stringstream SystemRenderText::getSSComponentInput(ComponentInput &cmp_input) const{
 
     std::stringstream ss;
     
@@ -30,4 +42,5 @@ std::stringstream SystemRenderText::printInput(ComponentInput &cmp_input) {
     << "SELECT\t" << cmp_input.m_input_state_[GameInput::SELECT]
     << "START\t"  << cmp_input.m_input_state_[GameInput::START];
 
+    return ss;
 }

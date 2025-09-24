@@ -1,8 +1,11 @@
 #include "ecs/entitymanager.hpp"
 #include "game/components/position.hpp"
+#include "game/components/textinfo.hpp"
 #include "game/components/velocity.hpp"
 #include "game/components/collision.hpp"
 #include "game/components/sprite.hpp"
+#include "game/components/input.hpp"
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
@@ -11,6 +14,7 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include "datastructs/circularbuffer.hpp"
+#include "game/systems/rendertext.hpp"
 
 struct Key;
 
@@ -39,10 +43,15 @@ int main () {
     spr.sprite.setPosition({200, 200});
     spr.sprite.setScale({4, 4});
     
-        
+    auto& inp = entity_manager.addComponent<ComponentInput>(player);
+    auto& txt = entity_manager.addComponent<ComponentTextInfo>(player);
+    
+       
 
     sf::RenderWindow window(sf::VideoMode({800, 600}), "BASÚN 2");
     window.setFramerateLimit(120);
+
+    SystemRenderText sys_text;
     
     float speed = 200.f; // píxeles por segundo
     sf::Clock clock;
@@ -72,7 +81,11 @@ int main () {
             rect.move({speed * dt, 0});
         }
 
+        entity_manager.printEntityComponents();
+        entity_manager.printPoolComponents();
+
         window.clear(sf::Color::Yellow);
+        sys_text.update(entity_manager, window);
         window.draw(spr.sprite);
         window.display();
     }

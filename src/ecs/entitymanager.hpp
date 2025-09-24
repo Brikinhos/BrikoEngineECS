@@ -48,9 +48,9 @@ namespace ecs {
     
         //o el tipo no existe o existe el tipo pero esa entidad no tiene un componente asociado de ese tipo
         template <typename TypeComponent>
-        TypeComponent* getComponentFromEntity (const Entity& entity) const noexcept {
+        TypeComponent* getComponentFromEntityID (TypeInt ID_entity) const noexcept {
             auto ID_component = Component<TypeComponent>::getIDTypeComponent();
-            auto ID_entity = entity.getEntityID();
+      
 
             //Comprobamos que existe un valor para la clave dada en m_entity_components_, si no existe, devolvemos un nullptr
             auto ptr_m_ent_cmp = m_entity_components_.find(ID_entity);
