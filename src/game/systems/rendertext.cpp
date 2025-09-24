@@ -1,0 +1,33 @@
+#include "game/systems/rendertext.hpp"
+#include "game/components/input.hpp"
+#include "rendertext.hpp"
+#include "game/components/textinfo.hpp"
+#include <sstream>
+
+void SystemRenderText::update (ecs::EntityManager& entity_manager, sf::RenderWindow& window) const noexcept {
+
+    auto& v_cmp_textinfo = entity_manager.getComponentVectorByType<ComponentTextInfo>();
+    for (auto& cmp_textinfo : v_cmp_textinfo) {
+        entity_manager.
+        cmp_textinfo.text.setString(printInput())
+        window.draw(cmp_textinfo.text);
+    }
+
+}
+
+std::stringstream SystemRenderText::printInput(ComponentInput &cmp_input) {
+
+    std::stringstream ss;
+    
+    ss << "ACTION\tSTATE" 
+    << "UP\t"     << cmp_input.m_input_state_[GameInput::UP]
+    << "DOWN\t"   << cmp_input.m_input_state_[GameInput::DOWN] 
+    << "LEFT\t"   << cmp_input.m_input_state_[GameInput::LEFT]
+    << "RIGHT\t"  << cmp_input.m_input_state_[GameInput::RIGHT]
+    << "ATTACK\t" << cmp_input.m_input_state_[GameInput::ATTACK]
+    << "JUMP\t"   << cmp_input.m_input_state_[GameInput::JUMP]
+    << "USE\t"    << cmp_input.m_input_state_[GameInput::USE]
+    << "SELECT\t" << cmp_input.m_input_state_[GameInput::SELECT]
+    << "START\t"  << cmp_input.m_input_state_[GameInput::START];
+
+}

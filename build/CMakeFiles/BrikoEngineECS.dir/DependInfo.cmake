@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj.d"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/rendertext.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj.d"
   "E:/Proyectos SFML/BrikoEngineECS/src/main.cpp" "CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj.d"
   )
 

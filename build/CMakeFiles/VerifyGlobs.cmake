@@ -4,6 +4,8 @@
 # SOURCES at CMakeLists.txt:21 (file)
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "E:/Proyectos SFML/BrikoEngineECS/src/*.cpp")
 set(OLD_GLOB
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.cpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/rendertext.cpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/main.cpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
@@ -15,6 +17,7 @@ endif()
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "E:/Proyectos SFML/BrikoEngineECS/src/*.hpp")
 set(OLD_GLOB
   "E:/Proyectos SFML/BrikoEngineECS/src/datastructs/circularbuffer.hpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/datastructs/input.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/datastructs/slotmap.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/ecs/aliases.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/ecs/component.hpp"
@@ -24,7 +27,11 @@ set(OLD_GLOB
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/input.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/position.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/sprite.hpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/components/state.hpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/components/textinfo.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/velocity.hpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.hpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/rendertext.hpp"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")
   message("-- GLOB mismatch!")

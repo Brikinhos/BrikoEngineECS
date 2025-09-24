@@ -5,6 +5,8 @@
 			"expression" : "E:/Proyectos SFML/BrikoEngineECS/src/*.cpp",
 			"paths" : 
 			[
+				"E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.cpp",
+				"E:/Proyectos SFML/BrikoEngineECS/src/game/systems/rendertext.cpp",
 				"E:/Proyectos SFML/BrikoEngineECS/src/main.cpp"
 			],
 			"recurse" : true
@@ -14,6 +16,7 @@
 			"paths" : 
 			[
 				"E:/Proyectos SFML/BrikoEngineECS/src/datastructs/circularbuffer.hpp",
+				"E:/Proyectos SFML/BrikoEngineECS/src/datastructs/input.hpp",
 				"E:/Proyectos SFML/BrikoEngineECS/src/datastructs/slotmap.hpp",
 				"E:/Proyectos SFML/BrikoEngineECS/src/ecs/aliases.hpp",
 				"E:/Proyectos SFML/BrikoEngineECS/src/ecs/component.hpp",
@@ -23,7 +26,11 @@
 				"E:/Proyectos SFML/BrikoEngineECS/src/game/components/input.hpp",
 				"E:/Proyectos SFML/BrikoEngineECS/src/game/components/position.hpp",
 				"E:/Proyectos SFML/BrikoEngineECS/src/game/components/sprite.hpp",
-				"E:/Proyectos SFML/BrikoEngineECS/src/game/components/velocity.hpp"
+				"E:/Proyectos SFML/BrikoEngineECS/src/game/components/state.hpp",
+				"E:/Proyectos SFML/BrikoEngineECS/src/game/components/textinfo.hpp",
+				"E:/Proyectos SFML/BrikoEngineECS/src/game/components/velocity.hpp",
+				"E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.hpp",
+				"E:/Proyectos SFML/BrikoEngineECS/src/game/systems/rendertext.hpp"
 			],
 			"recurse" : true
 		}

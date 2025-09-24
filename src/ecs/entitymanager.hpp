@@ -7,44 +7,12 @@
 #include <memory>
 #include "entity.hpp"
 #include <cstdio>
+#include "component.hpp"
 
 namespace ecs {
 
     using IDTypeComponent = TypeInt;
-    //template <typename TypeComponent>
-    //using VectorComponent = std::vector<Component<TypeComponent>>;
-
-    /*
-    struct IVectorComponent {
-        virtual ~IVectorComponent() = default;
-        virtual std::size_t size() const noexcept = 0;
-        virtual std::size_t sizeElement() const noexcept = 0;
-        virtual const void* dataAddress() const noexcept = 0;
-    };
-
-    template <typename T>
-    struct VectorComponent : IVectorComponent {
-        VectorComponent (const TypeInt max_elements) {
-            vector_component_.reserve(max_elements);
-        }
-
-        std::size_t size() const noexcept override{
-            return vector_component_.size();
-        }
-
-        std::size_t sizeElement() const noexcept override{
-            return sizeof(vector_component_[0]);
-        }
-
-        const void* dataAddress() const noexcept override {
-            return vector_component_.empty() ? nullptr 
-            : static_cast<const void*>(vector_component_.data());
-        }
-
-        std::vector<T> vector_component_;
-    };
-
-    */
+   
     struct EntityManager {
 
         EntityManager (ecs::TypeInt max_elements)
@@ -77,26 +45,53 @@ namespace ecs {
 
         template <typename TypeComponent>
         TypeComponent& addComponent(Entity&&) = delete;
-    /*
-    template <typename TypeComponent>
-    TypeComponent* getComponentFromEntityComponentsTable (const Entity& entity) const noexcept {
+    
+        //o el tipo no existe o existe el tipo pero esa entidad no tiene un componente asociado de ese tipo
+        template <typename TypeComponent>
+        TypeComponent* getComponentFromEntity (const Entity& entity) const noexcept {
             auto ID_component = Component<TypeComponent>::getIDTypeComponent();
-            auto e_ID = entity.getEntityID();
-            auto it_cmp = m_entity_components_.at(e_ID).find(ID_component);
-            if (it_cmp != m_entity_components_.at(e_ID).end())
-            return static_cast<TypeComponent*>(it_cmp->second);
-            return nullptr;
+            auto ID_entity = entity.getEntityID();
+
+            //Comprobamos que existe un valor para la clave dada en m_entity_components_, si no existe, devolvemos un nullptr
+            auto ptr_m_ent_cmp = m_entity_components_.find(ID_entity);
+            if (ptr_m_ent_cmp == m_entity_components_.end()) {
+                return nullptr;
+            }
+            //Comprobamos que existe un valor para la clave dada en m_entity_components_.at(x).second
+            // (que es un unordered_map<ID_component, Key>), si no existe, devolvemos un nullptr
+            auto ptr_m_cmp_key = ptr_m_ent_cmp->second.find(ID_component);
+            if (ptr_m_cmp_key == ptr_m_ent_cmp->second.end()) {
+                return nullptr;
+            }
+
+            auto& key = ptr_m_cmp_key->second;
+            
+            auto it_pool = pool_components_.find(ID_component);
+            if (it_pool == pool_components_.end() || !it_pool->second) {
+                return nullptr;
+            }
+
+            auto& slotmap = static_cast<Slotmap<TypeComponent>&>(*it_pool->second);
+
+            auto& cmp = slotmap.getData(key);
+            return &cmp;
+            
         }
 
         template <typename TypeComponent>
-        void addComponentToEntityComponentsTable (const TypeComponent& component, const Entity& entity) noexcept {
-            auto* ptr_cmp = &component;
-            auto id_type_cmp = Component<TypeComponent>::getIDTypeComponent();
-            auto e_ID = entity.getEntityID();
-            m_entity_components_[e_ID][id_type_cmp] = ptr_cmp;
-        }
+        std::vector<TypeComponent>& getComponentVectorByType() {
+            auto id_type_component = Component<TypeComponent>::getIDTypeComponent();
 
-        */
+            auto it_pool = pool_components_.find(id_type_component);
+            if (it_pool == pool_components_.end() || !it_pool->second) {
+                throw std::runtime_error("No existe Slotmap para este TypeComponent");
+            }
+
+            auto& i_slotmap = *it_pool->second; // ISlotmap&
+            auto& slotmap = static_cast<Slotmap<TypeComponent>&>(i_slotmap);
+
+            return slotmap.getDataVector(); // Devuelves referencia al vector
+        }
 
         void printPoolComponents () const noexcept {
             for (auto const& [key, val] : pool_components_) {
@@ -110,10 +105,10 @@ namespace ecs {
                 if (base_ptr) {
                     for (std::size_t i = 0; i < val->size(); ++i) {
                         const char* element_ptr = base_ptr + (i * val->sizeElement());
-                        std::ptrdiff_t offset = element_ptr - base_ptr;  // ✅ válido: char* - char*
+                        std::ptrdiff_t offset = element_ptr - base_ptr;  
 
                         std::cout << "    Element[" << i << "] @ "
-                        << static_cast<const void*>(element_ptr)  // mostramos como void* para formato bonito
+                        << static_cast<const void*>(element_ptr)
                         << "  (offset " << offset << " bytes)\n";
                     }
                 } else {
@@ -123,7 +118,6 @@ namespace ecs {
                 std::cout << "\n";
             }
         }
-
         
         void printEntityComponents () const noexcept {
             for (auto const& [key1, val1] : m_entity_components_) {

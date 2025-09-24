@@ -84,12 +84,12 @@ clean: CMakeFiles/BrikoEngineECS.dir/clean
 CMakeFiles/BrikoEngineECS.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=1,2 "Built target BrikoEngineECS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=1,2,3,4 "Built target BrikoEngineECS"
 .PHONY : CMakeFiles/BrikoEngineECS.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BrikoEngineECS.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/BrikoEngineECS.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" 0
 .PHONY : CMakeFiles/BrikoEngineECS.dir/rule
@@ -101,7 +101,7 @@ BrikoEngineECS: CMakeFiles/BrikoEngineECS.dir/rule
 # codegen rule for target.
 CMakeFiles/BrikoEngineECS.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=1,2 "Finished codegen for target BrikoEngineECS"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=1,2,3,4 "Finished codegen for target BrikoEngineECS"
 .PHONY : CMakeFiles/BrikoEngineECS.dir/codegen
 
 # clean rule for target.

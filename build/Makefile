@@ -129,6 +129,54 @@ BrikoEngineECS/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/build
 .PHONY : BrikoEngineECS/fast
 
+src/game/systems/input.obj: src/game/systems/input.cpp.obj
+.PHONY : src/game/systems/input.obj
+
+# target to build an object file
+src/game/systems/input.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj
+.PHONY : src/game/systems/input.cpp.obj
+
+src/game/systems/input.i: src/game/systems/input.cpp.i
+.PHONY : src/game/systems/input.i
+
+# target to preprocess a source file
+src/game/systems/input.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.i
+.PHONY : src/game/systems/input.cpp.i
+
+src/game/systems/input.s: src/game/systems/input.cpp.s
+.PHONY : src/game/systems/input.s
+
+# target to generate assembly for a file
+src/game/systems/input.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.s
+.PHONY : src/game/systems/input.cpp.s
+
+src/game/systems/rendertext.obj: src/game/systems/rendertext.cpp.obj
+.PHONY : src/game/systems/rendertext.obj
+
+# target to build an object file
+src/game/systems/rendertext.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj
+.PHONY : src/game/systems/rendertext.cpp.obj
+
+src/game/systems/rendertext.i: src/game/systems/rendertext.cpp.i
+.PHONY : src/game/systems/rendertext.i
+
+# target to preprocess a source file
+src/game/systems/rendertext.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.i
+.PHONY : src/game/systems/rendertext.cpp.i
+
+src/game/systems/rendertext.s: src/game/systems/rendertext.cpp.s
+.PHONY : src/game/systems/rendertext.s
+
+# target to generate assembly for a file
+src/game/systems/rendertext.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.s
+.PHONY : src/game/systems/rendertext.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -162,6 +210,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... BrikoEngineECS
+	@echo ... src/game/systems/input.obj
+	@echo ... src/game/systems/input.i
+	@echo ... src/game/systems/input.s
+	@echo ... src/game/systems/rendertext.obj
+	@echo ... src/game/systems/rendertext.i
+	@echo ... src/game/systems/rendertext.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
