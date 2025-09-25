@@ -8,7 +8,6 @@
 void SystemRenderText::update (ecs::EntityManager& entity_manager, sf::RenderWindow& window) const noexcept {
     
     auto& v_cmp_textinfo = entity_manager.getComponentVectorByType<ComponentTextInfo>();
-    std::cout << "data slotmap textinfo: " << &v_cmp_textinfo;
     for (auto& cmp_textinfo : v_cmp_textinfo) {
         auto* cmp_input = entity_manager.getComponentFromEntityID<ComponentInput>(cmp_textinfo.getEntityID());
         if (cmp_input) {
@@ -16,7 +15,7 @@ void SystemRenderText::update (ecs::EntityManager& entity_manager, sf::RenderWin
             cmp_textinfo.text.setString("TEXT");
             auto& text = cmp_textinfo.text;
             window.draw(text);
-        }        
+        }
     }
 }
 

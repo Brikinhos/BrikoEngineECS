@@ -1,19 +1,19 @@
 [
 {
   "directory": "E:/Proyectos SFML/BrikoEngineECS/build",
-  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -std=c++23 -Wall -Wextra -pedantic -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\systems\\input.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\systems\\input.cpp\"",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -g -O0 -std=c++23 -Wall -Wextra -pedantic -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\systems\\input.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\systems\\input.cpp\"",
   "file": "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.cpp",
   "output": "CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj"
 },
 {
   "directory": "E:/Proyectos SFML/BrikoEngineECS/build",
-  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -std=c++23 -Wall -Wextra -pedantic -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\systems\\rendertext.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\systems\\rendertext.cpp\"",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -g -O0 -std=c++23 -Wall -Wextra -pedantic -o CMakeFiles\\BrikoEngineECS.dir\\src\\game\\systems\\rendertext.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\game\\systems\\rendertext.cpp\"",
   "file": "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/rendertext.cpp",
   "output": "CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj"
 },
 {
   "directory": "E:/Proyectos SFML/BrikoEngineECS/build",
-  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -std=c++23 -Wall -Wextra -pedantic -o CMakeFiles\\BrikoEngineECS.dir\\src\\main.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\main.cpp\"",
+  "command": "C:\\mingw64\\bin\\g++.exe  @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp -g -g -O0 -std=c++23 -Wall -Wextra -pedantic -o CMakeFiles\\BrikoEngineECS.dir\\src\\main.cpp.obj -c \"E:\\Proyectos SFML\\BrikoEngineECS\\src\\main.cpp\"",
   "file": "E:/Proyectos SFML/BrikoEngineECS/src/main.cpp",
   "output": "CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj"
 }

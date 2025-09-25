@@ -11,6 +11,14 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Genera compile_commands.json para clangd
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+# Build tipo Debug por defecto si no se especifica
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Debug)
+endif()
+
+# Opciones de compilación para Debug
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0")
+
 # Especifica la ruta de SFML si no está en el sistema
 set(SFML_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib/SFML-3.0.2/lib/cmake/SFML")
 

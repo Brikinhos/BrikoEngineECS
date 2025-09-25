@@ -23,6 +23,11 @@ int main () {
     ecs::EntityManager entity_manager(10);
     //Creamos una entidad
     auto& player = entity_manager.createEntity();
+    auto& mongolin = entity_manager.createEntity();
+
+    auto& txt2 = entity_manager.addComponent<ComponentTextInfo>(mongolin);
+    auto& inp2 = entity_manager.addComponent<ComponentInput>(mongolin);
+
 
     auto& col = entity_manager.addComponent<ComponentCollision>(player);
     col.box.coord_a_ = {0, 0};

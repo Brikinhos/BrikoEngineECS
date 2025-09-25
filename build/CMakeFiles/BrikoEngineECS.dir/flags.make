@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = @CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp
 
-CXX_FLAGS = -std=c++23 -Wall -Wextra -pedantic
+CXX_FLAGS = -g -g -O0 -std=c++23 -Wall -Wextra -pedantic
 

@@ -35,19 +35,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 31,
+				"line" : 39,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 43,
+				"line" : 51,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 18,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
@@ -73,13 +73,13 @@
 			{
 				"command" : 5,
 				"file" : 0,
-				"line" : 52,
+				"line" : 60,
 				"parent" : 0
 			},
 			{
 				"command" : 6,
 				"file" : 0,
-				"line" : 37,
+				"line" : 45,
 				"parent" : 0
 			}
 		]
@@ -90,7 +90,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-std=c++23"
+					"fragment" : "-g -g -O0 -std=c++23"
 				},
 				{
 					"backtrace" : 8,
@@ -139,6 +139,10 @@
 	{
 		"commandFragments" : 
 		[
+			{
+				"fragment" : "-g -g -O0",
+				"role" : "flags"
+			},
 			{
 				"backtrace" : 2,
 				"fragment" : "\"E:\\Proyectos SFML\\BrikoEngineECS\\lib\\SFML-3.0.2\\lib\\libsfml-graphics-d.a\"",

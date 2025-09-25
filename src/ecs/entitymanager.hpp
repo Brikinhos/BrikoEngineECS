@@ -35,7 +35,6 @@ namespace ecs {
             }
             //Obtenemos el puntero al vector del tipo correspondiente haciendo downcasting
             Slotmap<TypeComponent>* ptr_slotmap = static_cast<Slotmap<TypeComponent>*>(pool_components_[id_type_component].get());
-            std::cout << "ptr_slotmap: " << ptr_slotmap << "\n";
             //Movemos el componente al vector
             Key key = ptr_slotmap->push_back(std::move(component));
             //Añadimos el id del tipo y un puntero del componente a la tabla de la entidad, para una búsqueda más rápida en los sitemas
@@ -82,17 +81,14 @@ namespace ecs {
         template <typename TypeComponent>
         std::vector<TypeComponent>& getComponentVectorByType() {
             auto id_type_component = Component<TypeComponent>::getIDTypeComponent();
-
-            
             auto it_pool = pool_components_.find(id_type_component);
+            std::cout << &it_pool << "\n";
             if (it_pool == pool_components_.end() || !it_pool->second) {
                 throw std::runtime_error("No existe Slotmap para este TypeComponent");
             }
             
-            auto& i_slotmap = *it_pool->second; // ISlotmap&
-        
+            auto& i_slotmap = *it_pool->second; // ISlotmap&        
             auto& slotmap = static_cast<Slotmap<TypeComponent>&>(i_slotmap);
-
             return slotmap.getDataVector(); // Devuelves referencia al vector
         }
 
