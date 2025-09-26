@@ -1,3 +1,0 @@
-E:/Proyectos SFML/BrikoEngineECS/build/CMakeFiles/BrikoEngineECS.dir
-E:/Proyectos SFML/BrikoEngineECS/build/CMakeFiles/edit_cache.dir
-E:/Proyectos SFML/BrikoEngineECS/build/CMakeFiles/rebuild_cache.dir

@@ -89,6 +89,7 @@
             indices_[nowfreelist].idx_ = size_;
             //Insertamos el dato
             data_.push_back(std::move(data));
+            auto& dat = data_.back();
             //Asociamos la posición del Slot relacionado con el dato en erase_
             erase_.push_back(nowfreelist);
             //Modificamos la posición del siguiente hueco libre para datos
@@ -143,10 +144,11 @@
         }
 
         TypeData& getData (Key key) {
-            if (key.gen_ != indices_[key.idx_].gen_)
+            auto slot_pos = erase_.at(key.idx_);
+            auto& slot = indices_.at(slot_pos);
+            if (slot.gen_ != key.gen_)
                 throw std::runtime_error("La key no apunta a un índice que contenga un dato");
-            auto idx_data = indices_[key.idx_].idx_;
-            return data_[idx_data];
+            return data_.at(key.idx_);
         }
 
     private:        

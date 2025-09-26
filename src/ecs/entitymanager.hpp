@@ -36,7 +36,7 @@ namespace ecs {
             //Obtenemos el puntero al vector del tipo correspondiente haciendo downcasting
             Slotmap<TypeComponent>* ptr_slotmap = static_cast<Slotmap<TypeComponent>*>(pool_components_[id_type_component].get());
             //Movemos el componente al vector
-            Key key = ptr_slotmap->push_back(std::move(component));
+            Key key = ptr_slotmap->push_back(component);
             //Añadimos el id del tipo y un puntero del componente a la tabla de la entidad, para una búsqueda más rápida en los sitemas
             m_entity_components_[id_entity][id_type_component] = key;
             //Devolvemos referencia del componente, ya dentro del vector
@@ -49,8 +49,7 @@ namespace ecs {
         //o el tipo no existe o existe el tipo pero esa entidad no tiene un componente asociado de ese tipo
         template <typename TypeComponent>
         TypeComponent* getComponentFromEntityID (TypeInt ID_entity) const noexcept {
-            auto ID_component = Component<TypeComponent>::getIDTypeComponent();
-      
+            auto ID_component = Component<TypeComponent>::getIDTypeComponent();      
 
             //Comprobamos que existe un valor para la clave dada en m_entity_components_, si no existe, devolvemos un nullptr
             auto ptr_m_ent_cmp = m_entity_components_.find(ID_entity);
@@ -82,7 +81,6 @@ namespace ecs {
         std::vector<TypeComponent>& getComponentVectorByType() {
             auto id_type_component = Component<TypeComponent>::getIDTypeComponent();
             auto it_pool = pool_components_.find(id_type_component);
-            std::cout << &it_pool << "\n";
             if (it_pool == pool_components_.end() || !it_pool->second) {
                 throw std::runtime_error("No existe Slotmap para este TypeComponent");
             }
@@ -126,8 +124,7 @@ namespace ecs {
                     std::cout << "  Key: idx: " << val2.idx_ << "\tgen: " << val2.gen_ << "\n";
                 }
             }
-        }
-        
+        }        
 
         void printEntities () const noexcept {
             for (const auto& entity : v_entities_) {

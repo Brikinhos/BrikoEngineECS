@@ -11,9 +11,12 @@ void SystemRenderText::update (ecs::EntityManager& entity_manager, sf::RenderWin
     for (auto& cmp_textinfo : v_cmp_textinfo) {
         auto* cmp_input = entity_manager.getComponentFromEntityID<ComponentInput>(cmp_textinfo.getEntityID());
         if (cmp_input) {
-            //cmp_textinfo.text.setString(getSSComponentInput(*cmp_input).str());
-            cmp_textinfo.text.setString("TEXT");
+            cmp_textinfo.text.setString(getSSComponentInput(*cmp_input).str());
             auto& text = cmp_textinfo.text;
+            std::cout << "Dirección txt en system: " << static_cast<const void*>(&cmp_textinfo) << '\n';
+            std::cout << "Dirección inp en system: " << static_cast<const void*>(cmp_input) << '\n';
+            sf::Font f ("E:/Proyectos SFML/BrikoEngineECS/game/fonts/ProFontWindows.ttf");
+            text.setFont(f);
             window.draw(text);
         }
     }
