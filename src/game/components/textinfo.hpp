@@ -2,12 +2,13 @@
 
 #include "ecs/component.hpp"
 #include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Text.hpp>
 
 struct ComponentTextInfo: ecs::Component<ComponentTextInfo> {
     explicit ComponentTextInfo (ecs::TypeInt id_entity)
-        : Component(id_entity)
-    {}    
+        : Component(id_entity), text_(font_)
+    {}
 
-    sf::Font font {"E:/Proyectos SFML/BrikoEngineECS/game/fonts/ProFontWindows.ttf"};    
-    sf::Text text {font};
+    inline static const sf::Font font_ {"E:/Proyectos SFML/BrikoEngineECS/game/fonts/ProFontWindows.ttf"};
+    sf::Text text_;
 };

@@ -17,71 +17,77 @@
 #include "game/systems/rendertext.hpp"
 
 struct Key;
+/*
+struct ComponentText {
+    ComponentText (sf::Font& font)
+    : text (std::move(sf::Text(font))) {
+        text.setFont(font);
+    }
+    sf::Text text;
+};
+
+std::vector<ComponentText> v_cmp_text;
+sf::Font font ("E:/Proyectos SFML/BrikoEngineECS/game/fonts/ProFontWindows.ttf");
+ComponentText cmp_text(font);
+cmp_text.text.setString("HI GUYS!");
+v_cmp_text.push_back(std::move(cmp_text));
+return 0;
+}
+*/
 
 int main () {      
+    
     //Creamos el Entity Manager
     ecs::EntityManager entity_manager(10);
     //Creamos una entidad
-   //auto& player = entity_manager.createEntity();
-    auto& mongolin = entity_manager.createEntity();
-
+    auto& player = entity_manager.createEntity();
+   
+    auto& col = entity_manager.addComponent<ComponentCollision>(player);
+    col.box.coord_a_ = {0, 0};
+    col.box.coord_b_ = {50, 50};
     
-    auto& txt2 = entity_manager.addComponent<ComponentTextInfo>(mongolin);
-    std::cout << "Dirección txt: " << static_cast<const void*>(&txt2) << "\n";
-    auto& inp2 = entity_manager.addComponent<ComponentInput>(mongolin);
-    std::cout << "Dirección inp: " << static_cast<const void*>(&inp2) << "\n";
-
-
-
+    auto& pos = entity_manager.addComponent<ComponentPosition>(player);
+    pos.x = 200;
+    pos.y = 200;
     
-/*
-auto& col = entity_manager.addComponent<ComponentCollision>(player);
-col.box.coord_a_ = {0, 0};
-col.box.coord_b_ = {50, 50};
-
-auto& pos = entity_manager.addComponent<ComponentPosition>(player);
-pos.x = 200;
-pos.y = 200;
-
-auto& vel = entity_manager.addComponent<ComponentVelocity>(player);
-vel.velocity = 200;
-
-auto& spr = entity_manager.addComponent<ComponentSprite>(player);
-auto yes = spr.texture.loadFromFile("E:/Proyectos SFML/BrikoEngineECS/game/assets/basun_soldier.png");
-
-spr.sprite.setTexture(spr.texture);
-spr.sprite.setTextureRect({{0, 0},{30, 52}});
-spr.sprite.setPosition({200, 200});
-spr.sprite.setScale({4, 4});
-
-auto& inp = entity_manager.addComponent<ComponentInput>(player);
-auto& txt = entity_manager.addComponent<ComponentTextInfo>(player);       
-
-
-
-sf::RectangleShape rect;
-rect.setSize({50, 100});
-rect.setPosition({200, 200});
-
-entity_manager.printEntityComponents();
-entity_manager.printPoolComponents();
-*/
-sf::RenderWindow window(sf::VideoMode({800, 600}), "BASÚN 2");
-window.setFramerateLimit(120);
-
-SystemRenderText sys_text;
-
-float speed = 200.f; // píxeles por segundo
-sf::Clock clock;
-
-while (window.isOpen()) {
-    while (auto event = window.pollEvent()) {
-        if (event->is<sf::Event::Closed>())
-        window.close();
-    }
+    auto& vel = entity_manager.addComponent<ComponentVelocity>(player);
+    vel.velocity = 200;
     
+    auto& spr = entity_manager.addComponent<ComponentSprite>(player);
+    auto yes = spr.texture.loadFromFile("E:/Proyectos SFML/BrikoEngineECS/game/assets/basun_soldier.png");
+    
+    spr.sprite.setTexture(spr.texture);
+    spr.sprite.setTextureRect({{0, 0},{30, 52}});
+    spr.sprite.setPosition({200, 200});
+    spr.sprite.setScale({4, 4});
+    
+    auto& inp = entity_manager.addComponent<ComponentInput>(player);
+    auto& txt = entity_manager.addComponent<ComponentTextInfo>(player);       
+        
+    sf::RectangleShape rect;
+    rect.setSize({50, 100});
+    rect.setPosition({200, 200});
+    
+    entity_manager.printEntityComponents();
+    entity_manager.printPoolComponents();
+    
+    
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "BASÚN 2");
+    window.setFramerateLimit(120);
+    
+    SystemRenderText sys_text;
+    
+    float speed = 200.f; // píxeles por segundo
+    sf::Clock clock;
+    
+    while (window.isOpen()) {
+        while (auto event = window.pollEvent()) {
+            if (event->is<sf::Event::Closed>())
+            window.close();
+        }
+        
         float dt = clock.restart().asSeconds();
-        /*
+        
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
             rect.move({0, -speed * dt});
         }
@@ -94,8 +100,7 @@ while (window.isOpen()) {
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
             rect.move({speed * dt, 0});
         }        
-        */
-
+        
         window.clear(sf::Color::Yellow);
         sys_text.update(entity_manager, window);
         window.display();
@@ -103,4 +108,5 @@ while (window.isOpen()) {
     
     return 0;
 }
+
 

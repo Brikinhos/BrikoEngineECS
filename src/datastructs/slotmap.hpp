@@ -89,7 +89,6 @@
             indices_[nowfreelist].idx_ = size_;
             //Insertamos el dato
             data_.push_back(std::move(data));
-            auto& dat = data_.back();
             //Asociamos la posición del Slot relacionado con el dato en erase_
             erase_.push_back(nowfreelist);
             //Modificamos la posición del siguiente hueco libre para datos
