@@ -22,16 +22,17 @@ std::stringstream SystemRenderText::getSSComponentInput(ComponentInput &cmp_inpu
 
     std::stringstream ss;
     
-    ss << "ACTION\tSTATE" 
-    << "UP\t"     << cmp_input.m_input_state_[GameInput::UP]
-    << "DOWN\t"   << cmp_input.m_input_state_[GameInput::DOWN] 
-    << "LEFT\t"   << cmp_input.m_input_state_[GameInput::LEFT]
-    << "RIGHT\t"  << cmp_input.m_input_state_[GameInput::RIGHT]
-    << "ATTACK\t" << cmp_input.m_input_state_[GameInput::ATTACK]
-    << "JUMP\t"   << cmp_input.m_input_state_[GameInput::JUMP]
-    << "USE\t"    << cmp_input.m_input_state_[GameInput::USE]
-    << "SELECT\t" << cmp_input.m_input_state_[GameInput::SELECT]
-    << "START\t"  << cmp_input.m_input_state_[GameInput::START];
+    ss 
+    << "ACTION  STATE" << "\n" 
+    << "UP        " << cmp_input.m_input_state_[GameInput::UP]     << "\n"
+    << "DOWN      " << cmp_input.m_input_state_[GameInput::DOWN]   << "\n"
+    << "LEFT      " << cmp_input.m_input_state_[GameInput::LEFT]   << "\n"
+    << "RIGHT     " << cmp_input.m_input_state_[GameInput::RIGHT]  << "\n"
+    << "ATTACK    " << cmp_input.m_input_state_[GameInput::ATTACK] << "\n"
+    << "JUMP      " << cmp_input.m_input_state_[GameInput::JUMP]   << "\n"
+    << "USE       " << cmp_input.m_input_state_[GameInput::USE]    << "\n"
+    << "SELECT    " << cmp_input.m_input_state_[GameInput::SELECT] << "\n"
+    << "START     " << cmp_input.m_input_state_[GameInput::START]  << "\n";
 
     return ss;
 }

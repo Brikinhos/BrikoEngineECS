@@ -1,11 +1,3 @@
-#include "ecs/entitymanager.hpp"
-#include "game/components/position.hpp"
-#include "game/components/textinfo.hpp"
-#include "game/components/velocity.hpp"
-#include "game/components/collision.hpp"
-#include "game/components/sprite.hpp"
-#include "game/components/input.hpp"
-
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
@@ -13,8 +5,19 @@
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
-#include "datastructs/circularbuffer.hpp"
+
+#include "ecs/entitymanager.hpp"
+
+#include "game/components/position.hpp"
+#include "game/components/textinfo.hpp"
+#include "game/components/velocity.hpp"
+#include "game/components/collision.hpp"
+#include "game/components/sprite.hpp"
+#include "game/components/input.hpp"
+
 #include "game/systems/rendertext.hpp"
+#include "game/systems/render.hpp"
+#include "game/systems/input.hpp"
 
 struct Key;
 /*
@@ -54,7 +57,7 @@ int main () {
     vel.velocity = 200;
     
     auto& spr = entity_manager.addComponent<ComponentSprite>(player);
-    auto yes = spr.texture.loadFromFile("E:/Proyectos SFML/BrikoEngineECS/game/assets/basun_soldier.png");
+    spr.texture.loadFromFile("E:/Proyectos SFML/BrikoEngineECS/game/assets/basun_soldier.png");
     
     spr.sprite.setTexture(spr.texture);
     spr.sprite.setTextureRect({{0, 0},{30, 52}});
@@ -69,13 +72,14 @@ int main () {
     rect.setPosition({200, 200});
     
     entity_manager.printEntityComponents();
-    entity_manager.printPoolComponents();
-    
+    entity_manager.printPoolComponents();    
     
     sf::RenderWindow window(sf::VideoMode({800, 600}), "BASÚN 2");
     window.setFramerateLimit(120);
     
     SystemRenderText sys_text;
+    SystemRender sys_render;
+    SystemInput sys_input;
     
     float speed = 200.f; // píxeles por segundo
     sf::Clock clock;
@@ -101,8 +105,11 @@ int main () {
             rect.move({speed * dt, 0});
         }        
         
-        window.clear(sf::Color::Yellow);
+        sf::Color color(255,165,0);
+        window.clear(color);
+        sys_input.update(entity_manager);
         sys_text.update(entity_manager, window);
+        sys_render.update(entity_manager, window);
         window.display();
     }
     

@@ -44,9 +44,7 @@ struct ComponentInput : ecs::Component<ComponentInput> {
         m_input_state_[GameInput::JUMP]   = false;
         m_input_state_[GameInput::USE]    = false;
         m_input_state_[GameInput::SELECT] = false;
-        m_input_state_[GameInput::START]  = false;
-
-        
+        m_input_state_[GameInput::START]  = false;        
     }
     
     CircularBuffer<Input, 10> buffer_input_;
