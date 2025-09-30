@@ -1,11 +1,12 @@
 #include "game/systems/rendertext.hpp"
+#include "ecs/eventhandler.hpp"
 #include "rendertext.hpp"
 #include "game/components/textinfo.hpp"
 #include <SFML/Graphics/Font.hpp>
 #include <SFML/Graphics/Text.hpp>
 #include <sstream>
 
-void SystemRenderText::update (ecs::EntityManager& entity_manager, sf::RenderWindow& window) const noexcept {
+void SystemRenderText::update (ecs::EntityManager& entity_manager, ecs::EventBus& eventbus, sf::RenderWindow& window) const noexcept {
     
     auto& v_cmp_textinfo = entity_manager.getComponentVectorByType<ComponentTextInfo>();
     for (auto& cmp_textinfo : v_cmp_textinfo) {
