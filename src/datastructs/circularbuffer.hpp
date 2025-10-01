@@ -30,6 +30,15 @@ struct CircularBuffer {
         return buffer_;
     }
 
+    std::vector<TypeData> getOrderedBuffer() const noexcept {
+        std::vector<TypeData> ordered_vector;
+        ordered_vector.reserve(CAPACITY);
+        for (std::size_t i = 0 ; i < buffer_.size() ; ++i) {
+            ordered_vector.push_back(buffer_.at((last_ + i) % buffer_.size()));
+        }
+        return ordered_vector;
+    }
+
     void print () const {
         std::cout << "size: " << buffer_.size() << "\n";
         for (std::size_t i = 0 ; i < buffer_.size() ; ++i) {
@@ -37,15 +46,13 @@ struct CircularBuffer {
         }
     }
 
-    std::stringstream getStringBufer() {
+    std::string getStringBuffer() {
         std::stringstream ss;
         for (std::size_t i = 0 ; i < buffer_.size() ; ++i) {
             ss << buffer_.at((last_ + i) % buffer_.size()) << " ";
         }
-        return ss;
+        return ss.str();
     }
-
-
 
 private:
     std::size_t last_ { 0 };

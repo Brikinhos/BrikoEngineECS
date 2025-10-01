@@ -29,8 +29,7 @@ void SystemInput::update (ecs::EntityManager& entity_manager, ecs::EventBus& eve
                            left_state.first  != left_state.second || 
                            right_state.first != right_state.second;
         //Si ha habido un cambio de estado en los botones de dirección entonces se calcula la nueva dirección y
-        // se añade al buffer, si la hay porque puede estar en un estado neutro, que en ese caso, no
-
+        // se añade al buffer, si la hay porque puede estar en un estado neutro, que en ese caso, no.
         if (dir_changed) {
             auto id_input = fromBinaryToDecimal(up_state.second, down_state.second, left_state.second, right_state.second);
             auto dir = ComponentInput::truthtable_input_directions_.at(id_input);

@@ -4,6 +4,7 @@
 #include "ecs/aliases.hpp"
 #include "datastructs/circularbuffer.hpp"
 #include <SFML/Window/Keyboard.hpp>
+#include <string>
 #include <unordered_map>
 
 enum GameInput {
@@ -75,5 +76,22 @@ struct ComponentInput : ecs::Component<ComponentInput> {
         {13, GameInput::RIGHT}, 
         {14, GameInput::LEFT},
         {15, GameInput::NOMOVE} 
+    };
+
+    std::unordered_map<GameInput, std::string> m_input_string {
+    { GameInput::UP,        "UP" },
+    { GameInput::DOWN,      "DW" },
+    { GameInput::LEFT,      "LF" },
+    { GameInput::RIGHT,     "RG" },
+    { GameInput::UPRIGHT,   "UR" },
+    { GameInput::UPLEFT,    "UL" },
+    { GameInput::DOWNRIGHT, "DR" },
+    { GameInput::DOWNLEFT,  "DL" },
+    { GameInput::ATTACK,    "AT" },        
+    { GameInput::JUMP,      "JP" },
+    { GameInput::USE,      "US" },
+    { GameInput::SELECT,   "SL"},
+    { GameInput::START,    "ST"},
+    { GameInput::NOMOVE,   ""  }
     };
 };
