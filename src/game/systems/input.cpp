@@ -13,11 +13,11 @@ void SystemInput::update (ecs::EntityManager& entity_manager, ecs::EventBus& eve
     auto& v_input_component = entity_manager.getComponentVectorByType<ComponentInput>();
     for (auto& cmp_input : v_input_component) {
         for (auto input: cmp_input.m_bind_keyboard_) {
-            cmp_input.m_input_state_[input.first] = sf::Keyboard::isKeyPressed(input.second);
-            if (sf::Keyboard::isKeyPressed(input.second)) {
-                EventPrueba event_prueba;
-                event_prueba.name = ecs::TextureName::Prueba;
-                eventbus.emit(event_prueba);
+            auto& pair_button_state = cmp_input.m_input_state_[input.first];
+            pair_button_state.first  = pair_button_state.second;
+            pair_button_state.second = sf::Keyboard::isKeyPressed(input.second);
+            if (pair_button_state.first != pair_button_state.second && pair_button_state.second) {
+                cmp_input.buffer_input_.push_back(input.first);
             }
         }
     }

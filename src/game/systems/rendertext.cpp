@@ -1,4 +1,5 @@
 #include "game/systems/rendertext.hpp"
+#include "datastructs/slotmap.hpp"
 #include "ecs/eventhandler.hpp"
 #include "rendertext.hpp"
 #include "game/components/textinfo.hpp"
@@ -22,18 +23,23 @@ void SystemRenderText::update (ecs::EntityManager& entity_manager, ecs::EventBus
 std::stringstream SystemRenderText::getSSComponentInput(ComponentInput &cmp_input) const{
 
     std::stringstream ss;
-    
+    //m_input_state_
     ss 
-    << "ACTION  STATE" << "\n" 
-    << "UP        " << cmp_input.m_input_state_[GameInput::UP]     << "\n"
-    << "DOWN      " << cmp_input.m_input_state_[GameInput::DOWN]   << "\n"
-    << "LEFT      " << cmp_input.m_input_state_[GameInput::LEFT]   << "\n"
-    << "RIGHT     " << cmp_input.m_input_state_[GameInput::RIGHT]  << "\n"
-    << "ATTACK    " << cmp_input.m_input_state_[GameInput::ATTACK] << "\n"
-    << "JUMP      " << cmp_input.m_input_state_[GameInput::JUMP]   << "\n"
-    << "USE       " << cmp_input.m_input_state_[GameInput::USE]    << "\n"
-    << "SELECT    " << cmp_input.m_input_state_[GameInput::SELECT] << "\n"
-    << "START     " << cmp_input.m_input_state_[GameInput::START]  << "\n";
+    << "ACTION  BEFORE  AFTER" << "\n" 
+    << "UP        " << cmp_input.m_input_state_[GameInput::UP].first     << "       " << cmp_input.m_input_state_[GameInput::UP].second     << "\n"
+    << "DOWN      " << cmp_input.m_input_state_[GameInput::DOWN].first   << "       " << cmp_input.m_input_state_[GameInput::DOWN].second   << "\n"
+    << "LEFT      " << cmp_input.m_input_state_[GameInput::LEFT].first   << "       " << cmp_input.m_input_state_[GameInput::LEFT].second   << "\n"
+    << "RIGHT     " << cmp_input.m_input_state_[GameInput::RIGHT].first  << "       " << cmp_input.m_input_state_[GameInput::RIGHT].second  << "\n"
+    << "ATTACK    " << cmp_input.m_input_state_[GameInput::ATTACK].first << "       " << cmp_input.m_input_state_[GameInput::ATTACK].second << "\n"
+    << "JUMP      " << cmp_input.m_input_state_[GameInput::JUMP].first   << "       " << cmp_input.m_input_state_[GameInput::JUMP].second   << "\n"
+    << "USE       " << cmp_input.m_input_state_[GameInput::USE].first    << "       " << cmp_input.m_input_state_[GameInput::USE].second    << "\n"
+    << "SELECT    " << cmp_input.m_input_state_[GameInput::SELECT].first << "       " << cmp_input.m_input_state_[GameInput::SELECT].second << "\n"
+    << "START     " << cmp_input.m_input_state_[GameInput::START].first  << "       " << cmp_input.m_input_state_[GameInput::START].second  << "\n";
 
+    //buffer_input_
+
+    ss
+    << "CIRCULAR BUFFER: " << cmp_input.buffer_input_.getStringBufer().str();
+   
     return ss;
 }

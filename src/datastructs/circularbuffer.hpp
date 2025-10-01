@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <vector>
 #include <iostream>
+#include <sstream>
 
 template <typename TypeData, std::size_t CAPACITY>
 struct CircularBuffer {
@@ -35,6 +36,16 @@ struct CircularBuffer {
             std::cout << buffer_.at((last_ + i) % buffer_.size()) << " ";
         }
     }
+
+    std::stringstream getStringBufer() {
+        std::stringstream ss;
+        for (std::size_t i = 0 ; i < buffer_.size() ; ++i) {
+            ss << buffer_.at((last_ + i) % buffer_.size()) << " ";
+        }
+        return ss;
+    }
+
+
 
 private:
     std::size_t last_ { 0 };

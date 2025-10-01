@@ -87,7 +87,6 @@ int main () {
     SystemRender sys_render;
     SystemInput sys_input;
     
-    float speed = 200.f; // píxeles por segundo
     sf::Clock clock;
     
     while (window.isOpen()) {
@@ -97,19 +96,7 @@ int main () {
         }
         
         float dt = clock.restart().asSeconds();
-        
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W)) {
-            rect.move({0, -speed * dt});
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S)) {
-            rect.move({0, speed * dt});
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A)) {
-            rect.move({-speed * dt, 0});
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-            rect.move({speed * dt, 0});
-        }        
+                
         
         sf::Color color(255,165,0);
         window.clear(color);

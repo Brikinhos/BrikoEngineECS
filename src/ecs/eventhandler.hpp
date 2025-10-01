@@ -6,7 +6,6 @@
 #include <typeindex>
 #include <cstdint>
 #include <algorithm>
-#include <concepts>
 
 namespace ecs {
 
