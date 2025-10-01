@@ -19,7 +19,8 @@ enum GameInput {
     JUMP,
     USE,
     SELECT,
-    START
+    START,
+    NOMOVE
 };
 
 struct ComponentInput : ecs::Component<ComponentInput> {
@@ -53,5 +54,26 @@ struct ComponentInput : ecs::Component<ComponentInput> {
     using PressedLastFrame = bool;
     using PressedThisFrame = bool;
     std::unordered_map<GameInput, std::pair<PressedLastFrame, PressedThisFrame>> m_input_state_;
-    std::unordered_map<GameInput, bool> m_virtualinput_state_;
+    using UP = bool;
+    using DOWN = bool;
+    using LEFT = bool;
+    using RIGHT = bool;
+    inline static const std::unordered_map<ecs::TypeInt, GameInput> truthtable_input_directions_ {
+        {0,  GameInput::NOMOVE},
+        {1,  GameInput::RIGHT},
+        {2,  GameInput::LEFT}, 
+        {3,  GameInput::NOMOVE}, 
+        {4,  GameInput::DOWN}, 
+        {5,  GameInput::DOWNRIGHT}, 
+        {6,  GameInput::DOWNLEFT}, 
+        {7,  GameInput::DOWN}, 
+        {8,  GameInput::UP}, 
+        {9,  GameInput::UPRIGHT}, 
+        {10, GameInput::UPLEFT}, 
+        {11, GameInput::UP}, 
+        {12, GameInput::NOMOVE}, 
+        {13, GameInput::RIGHT}, 
+        {14, GameInput::LEFT},
+        {15, GameInput::NOMOVE} 
+    };
 };
