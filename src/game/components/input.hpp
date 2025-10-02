@@ -12,10 +12,10 @@ enum GameInput {
     DOWN,
     LEFT,
     RIGHT,
-    UPRIGHT,
     UPLEFT,
-    DOWNRIGHT,
+    UPRIGHT,
     DOWNLEFT,
+    DOWNRIGHT,
     ATTACK,
     JUMP,
     USE,
@@ -38,15 +38,19 @@ struct ComponentInput : ecs::Component<ComponentInput> {
         m_bind_keyboard_[GameInput::SELECT] = sf::Keyboard::Key::RShift;
         m_bind_keyboard_[GameInput::START]  = sf::Keyboard::Key::Enter;
         
-        m_input_state_[GameInput::UP]     = {false, false};
-        m_input_state_[GameInput::DOWN]   = {false, false};
-        m_input_state_[GameInput::LEFT]   = {false, false};
-        m_input_state_[GameInput::RIGHT]  = {false, false};
-        m_input_state_[GameInput::ATTACK] = {false, false};
-        m_input_state_[GameInput::JUMP]   = {false, false};
-        m_input_state_[GameInput::USE]    = {false, false};
-        m_input_state_[GameInput::SELECT] = {false, false};
-        m_input_state_[GameInput::START]  = {false, false};        
+        m_input_state_[GameInput::UP]        = {false, false};
+        m_input_state_[GameInput::DOWN]      = {false, false};
+        m_input_state_[GameInput::LEFT]      = {false, false};
+        m_input_state_[GameInput::RIGHT]     = {false, false};
+        m_input_state_[GameInput::UPLEFT]    = {false, false};
+        m_input_state_[GameInput::UPRIGHT]   = {false, false};
+        m_input_state_[GameInput::DOWNLEFT]  = {false, false};
+        m_input_state_[GameInput::DOWNRIGHT] = {false, false};        
+        m_input_state_[GameInput::ATTACK]    = {false, false};
+        m_input_state_[GameInput::JUMP]      = {false, false};
+        m_input_state_[GameInput::USE]       = {false, false};
+        m_input_state_[GameInput::SELECT]    = {false, false};
+        m_input_state_[GameInput::START]     = {false, false};        
     }
     
     CircularBuffer<GameInput, 10> buffer_input_;
