@@ -21,4 +21,5 @@ struct ComponentFSM: ecs::Component<ComponentFSM> {
     std::unordered_map<StateID, std::map<TransitionID, StateID>> m_FSM_;
 
     StateID current_state_;
+    StateID last_id_;
 };

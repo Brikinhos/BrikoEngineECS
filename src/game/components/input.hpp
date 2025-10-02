@@ -79,19 +79,19 @@ struct ComponentInput : ecs::Component<ComponentInput> {
     };
 
     std::unordered_map<GameInput, std::string> m_input_string {
-    { GameInput::UP,        "UP" },
-    { GameInput::DOWN,      "DW" },
-    { GameInput::LEFT,      "LF" },
-    { GameInput::RIGHT,     "RG" },
-    { GameInput::UPRIGHT,   "UR" },
-    { GameInput::UPLEFT,    "UL" },
-    { GameInput::DOWNRIGHT, "DR" },
-    { GameInput::DOWNLEFT,  "DL" },
-    { GameInput::ATTACK,    "AT" },        
-    { GameInput::JUMP,      "JP" },
-    { GameInput::USE,      "US" },
-    { GameInput::SELECT,   "SL"},
-    { GameInput::START,    "ST"},
-    { GameInput::NOMOVE,   ""  }
+        { GameInput::UP,        "UP" },
+        { GameInput::DOWN,      "DW" },
+        { GameInput::LEFT,      "LF" },
+        { GameInput::RIGHT,     "RG" },
+        { GameInput::UPRIGHT,   "UR" },
+        { GameInput::UPLEFT,    "UL" },
+        { GameInput::DOWNRIGHT, "DR" },
+        { GameInput::DOWNLEFT,  "DL" },
+        { GameInput::ATTACK,    "AT" },        
+        { GameInput::JUMP,      "JP" },
+        { GameInput::USE,      "US" },
+        { GameInput::SELECT,   "SL"},
+        { GameInput::START,    "ST"},
+        { GameInput::NOMOVE,   ""  }
     };
 };

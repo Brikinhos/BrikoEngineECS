@@ -101,6 +101,11 @@ int main () {
         sf::Color color(255,165,0);
         window.clear(color);
         sys_input.update(entity_manager, eventbus);
+        //sys_IA.update(entity_manager, eventbus);
+        //sys_physics.update(entity_manager, eventbus);
+        //sys_collision.update(entity_manager, eventbus);
+        //sys_FSM.update(entity_manager, eventbus);
+        //sys_animation(entity_manager, eventbus);
         sys_text.update(entity_manager, eventbus, window);
         sys_render.update(entity_manager, eventbus, window, resource_manager);
         eventbus.processQueue();
