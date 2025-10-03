@@ -9,26 +9,23 @@
 void SystemInput::update (ecs::EntityManager& entity_manager, ecs::EventBus& eventbus) const noexcept {
     auto& v_input_component = entity_manager.getComponentVectorByType<ComponentInput>();
     for (auto& cmp_input : v_input_component) {
-        //Registra el estado actual de la entrada
         std::array<bool, 4> dir_states;
-        for (auto input: cmp_input.m_bind_keyboard_) {
-            //Registra el estado de las pulsaciones de los botones físicos
-            if (input.first >= GameInput::UP && input.first <= GameInput::RIGHT) {
-                dir_states.at(input.first) = sf::Keyboard::isKeyPressed(input.second);
-            } else if (input.first > GameInput::RIGHT) {
-                cmp_input.m_input_state_.at(input.first).first = cmp_input.m_input_state_.at(input.first).second;
-                cmp_input.m_input_state_.at(input.first).second = sf::Keyboard::isKeyPressed(input.second);
-            }
+        dir_states.at(GameInput::UP)    = sf::Keyboard::isKeyPressed(cmp_input.m_bind_keyboard_.at(GameInput::UP));
+        dir_states.at(GameInput::DOWN)  = sf::Keyboard::isKeyPressed(cmp_input.m_bind_keyboard_.at(GameInput::DOWN));
+        dir_states.at(GameInput::LEFT)  = sf::Keyboard::isKeyPressed(cmp_input.m_bind_keyboard_.at(GameInput::LEFT));
+        dir_states.at(GameInput::RIGHT) = sf::Keyboard::isKeyPressed(cmp_input.m_bind_keyboard_.at(GameInput::RIGHT));
+        
+        GameInput calculated_dir = fromFourDirToEightDir(dir_states);
+        
+        //Registra el estado actual de la entrada
+        for (auto& input_state : cmp_input.m_input_state_) {
+            input_state.second.first  = input_state.second.second;
+            if (input_state.first > GameInput::DOWNRIGHT)
+                input_state.second.second = sf::Keyboard::isKeyPressed(cmp_input.m_bind_keyboard_.at(input_state.first));
+            else 
+                input_state.second.second = input_state.first == calculated_dir;
         }
 
-        GameInput calculated_dir = fromFourDirToEightDir(dir_states);
-        for (int i = GameInput::UP; i <= GameInput::DOWNRIGHT; ++i) {
-            cmp_input.m_input_state_.at(static_cast<GameInput>(i)).first = cmp_input.m_input_state_.at(static_cast<GameInput>(i)).second;
-            cmp_input.m_input_state_.at(static_cast<GameInput>(i)).second = false;
-        }
-        if (calculated_dir != GameInput::NOMOVE) {
-            cmp_input.m_input_state_.at(calculated_dir).second = true;
-        }
         //Registra las entradas en el buffer
         //Primero la dirección
         if (calculated_dir != GameInput::NOMOVE && (cmp_input.m_input_state_.at(calculated_dir).first != cmp_input.m_input_state_.at(calculated_dir).second) && cmp_input.m_input_state_.at(calculated_dir).second) {
