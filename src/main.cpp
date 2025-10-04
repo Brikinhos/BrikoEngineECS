@@ -6,6 +6,7 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Window/Keyboard.hpp>
 
+#include "ecs/entity.hpp"
 #include "ecs/entitymanager.hpp"
 #include "ecs/eventhandler.hpp"
 #include "ecs/resourcemanager.hpp"
@@ -52,7 +53,7 @@ int main () {
     resource_manager.insertTexture("E:/Proyectos SFML/BrikoEngineECS/game/assets/basun_soldier.png", ecs::TextureName::Player);
     resource_manager.insertTexture("E:/Proyectos SFML/BrikoEngineECS/game/assets/holi.png",          ecs::TextureName::Prueba);
         
-    EntityBuilder entity_builder(entity_manager, resource_manager);
+    EntityBuilder entity_builder(entity_manager, resource_manager, TypeEntity::PLAYER);
     
     entity_builder
     .withCollision( 0, 0, 30, 52)

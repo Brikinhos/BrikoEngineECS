@@ -6,6 +6,8 @@
 #include <SFML/Window/Keyboard.hpp>
 #include <cstddef>
 
+#include "game/events/isbuttonpressed.hpp"
+
 void SystemInput::update (ecs::EntityManager& entity_manager, ecs::EventBus& eventbus) const noexcept {
     auto& v_input_component = entity_manager.getComponentVectorByType<ComponentInput>();
     for (auto& cmp_input : v_input_component) {
@@ -30,14 +32,21 @@ void SystemInput::update (ecs::EntityManager& entity_manager, ecs::EventBus& eve
 
         //Registra las entradas en el buffer
         //Primero la dirección
+        bool is_button_pressed;
         if (calculated_dir != GameInput::NOMOVE && (m_input_state.at(calculated_dir).first != m_input_state.at(calculated_dir).second) && m_input_state.at(calculated_dir).second) {
             cmp_input.buffer_input_.push_back(calculated_dir);
+            is_button_pressed = true;
         }
         //Ahora las otras entradas
         for (std::size_t i = GameInput::DOWNRIGHT + 1; i < m_input_state.size(); ++i) {
             if (m_input_state.at(static_cast<GameInput>(i)).first != m_input_state.at(static_cast<GameInput>(i)).second && m_input_state.at(static_cast<GameInput>(i)).second) {
                 cmp_input.buffer_input_.push_back(static_cast<GameInput>(i));
+                is_button_pressed = true;
             }
+        }
+
+        if (is_button_pressed) {
+            eventbus.emit(EventButtonPressed(cmp_input.getEntityID()));
         }
     }
 }

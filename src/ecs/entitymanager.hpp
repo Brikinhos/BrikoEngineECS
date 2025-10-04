@@ -20,8 +20,8 @@ namespace ecs {
             v_entities_.reserve(MAX_ELEMENTS_);
         }
 
-        const Entity& createEntity() {
-            return v_entities_.emplace_back();
+        const Entity& createEntity(TypeEntity type_entity) {
+            return v_entities_.emplace_back(type_entity);
         }
 
         template <typename TypeComponent>

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ecs/entity.hpp"
 #include "ecs/resourcemanager.hpp"
 #include "ecs/entitymanager.hpp"
 
@@ -11,8 +12,8 @@
 
 class EntityBuilder {
 public:
-    EntityBuilder(ecs::EntityManager& em, ecs::ResourceManager& rm)
-        : entity_manager(em), resource_manager(rm), entity(entity_manager.createEntity()) {
+    EntityBuilder(ecs::EntityManager& em, ecs::ResourceManager& rm, TypeEntity type_entity)
+        : entity_manager(em), resource_manager(rm), entity(entity_manager.createEntity(type_entity)) {
 
     }
 
