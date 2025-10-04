@@ -14,7 +14,10 @@ enum class TextureName {
 struct ResourceManager {
 
     void insertTexture (const std::filesystem::path& filename, TextureName name) {
-        sf::Texture texture(filename);
+        sf::Texture texture;
+        if (!texture.loadFromFile(filename.string())) {
+            throw std::runtime_error("No se pudo cargar la textura: " + filename.string());
+        }
         m_textures_[name] = std::move(texture);
     }
 

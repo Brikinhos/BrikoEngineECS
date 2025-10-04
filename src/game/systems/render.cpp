@@ -12,8 +12,9 @@ void SystemRender::update (ecs::EntityManager& entity_manager, ecs::EventBus& ev
     auto& v_sprite_component = entity_manager.getComponentVectorByType<ComponentSprite>();
     for (auto& cmp_sprite : v_sprite_component) {
         eventbus.subscribe<EventPrueba>([&window, &resource_manager](const EventPrueba& event){
-            window.draw(sf::Sprite(resource_manager.getTexture(event.name_)));
+           window.draw(sf::Sprite(resource_manager.getTexture(event.name_)));
         });
         window.draw(cmp_sprite.sprite);
+
     }
 }

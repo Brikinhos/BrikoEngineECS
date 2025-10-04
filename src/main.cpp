@@ -9,6 +9,7 @@
 #include "ecs/entitymanager.hpp"
 #include "ecs/eventhandler.hpp"
 #include "ecs/resourcemanager.hpp"
+#include "game/factories/player.hpp"
 
 #include "game/components/position.hpp"
 #include "game/components/textinfo.hpp"
@@ -42,52 +43,37 @@ return 0;
 
 int main () {      
     
+    
     //Creamos el Entity Manager
     ecs::EntityManager entity_manager(10);
     ecs::EventBus eventbus;
     ecs::ResourceManager resource_manager;
-
+    
     resource_manager.insertTexture("E:/Proyectos SFML/BrikoEngineECS/game/assets/basun_soldier.png", ecs::TextureName::Player);
     resource_manager.insertTexture("E:/Proyectos SFML/BrikoEngineECS/game/assets/holi.png",          ecs::TextureName::Prueba);
-    //Creamos una entidad
-    auto& player = entity_manager.createEntity();
-   
-    auto& col = entity_manager.addComponent<ComponentCollision>(player);
-    col.box.coord_a_ = {0, 0};
-    col.box.coord_b_ = {50, 50};
-    
-    auto& pos = entity_manager.addComponent<ComponentPosition>(player);
-    pos.x = 200;
-    pos.y = 200;
-    
-    auto& vel = entity_manager.addComponent<ComponentVelocity>(player);
-    vel.velocity = 200;
-    
-    auto& spr = entity_manager.addComponent<ComponentSprite>(player);
         
-    spr.sprite.setTexture(resource_manager.getTexture(ecs::TextureName::Player));
-    spr.sprite.setTextureRect({{0, 0},{30, 52}});
-    spr.sprite.setPosition({200, 200});
-    spr.sprite.setScale({4, 4});
+    EntityBuilder entity_builder(entity_manager, resource_manager);
     
-    auto& inp = entity_manager.addComponent<ComponentInput>(player);
-    auto& txt = entity_manager.addComponent<ComponentTextInfo>(player);       
-        
-    sf::RectangleShape rect;
-    rect.setSize({50, 100});
-    rect.setPosition({200, 200});
-    
+    entity_builder
+    .withCollision( 0, 0, 30, 52)
+    .withPosition(50, 50)
+    .withSprite(ecs::TextureName::Player)
+    .withVelocity(5)
+    .with<ComponentInput>()
+    .with<ComponentTextInfo>();
+
+    entity_manager.printEntities();
     entity_manager.printEntityComponents();
-    entity_manager.printPoolComponents();    
-    
-    sf::RenderWindow window(sf::VideoMode({800, 600}), "BASÚN 2");
-    window.setFramerateLimit(120);
+    entity_manager.printPoolComponents();        
     
     SystemRenderText sys_text;
     SystemRender sys_render;
     SystemInput sys_input;
     
     sf::Clock clock;
+    
+    sf::RenderWindow window(sf::VideoMode({800, 600}), "BASÚN 2");
+    window.setFramerateLimit(120);
     
     while (window.isOpen()) {
         while (auto event = window.pollEvent()) {
@@ -96,8 +82,7 @@ int main () {
         }
         
         float dt = clock.restart().asSeconds();
-                
-        
+     
         sf::Color color(255,165,0);
         window.clear(color);
         sys_input.update(entity_manager, eventbus);
