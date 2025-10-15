@@ -19,6 +19,7 @@
 #include "game/components/sprite.hpp"
 #include "game/components/input.hpp"
 
+#include "game/systems/FSM.hpp"
 #include "game/systems/rendertext.hpp"
 #include "game/systems/render.hpp"
 #include "game/systems/input.hpp"
@@ -48,6 +49,7 @@ int main () {
     //Creamos el Entity Manager
     ecs::EntityManager entity_manager(10);
     ecs::EventBus eventbus;
+    ecs::EventBus eventbus_input;
     ecs::ResourceManager resource_manager;
     
     resource_manager.insertTexture("E:/Proyectos SFML/BrikoEngineECS/game/assets/basun_soldier.png", ecs::TextureName::Player);
@@ -60,6 +62,7 @@ int main () {
     .withPosition(50, 50)
     .withSprite(ecs::TextureName::Player)
     .withVelocity(5)
+    .withFSM()
     .with<ComponentInput>()
     .with<ComponentTextInfo>();
 
@@ -67,9 +70,11 @@ int main () {
     entity_manager.printEntityComponents();
     entity_manager.printPoolComponents();        
     
+    SystemInput sys_input;
+    SystemFSM sys_FSM;
+    sys_FSM.init(entity_manager, eventbus_input);
     SystemRenderText sys_text;
     SystemRender sys_render;
-    SystemInput sys_input;
     
     sf::Clock clock;
     
@@ -86,11 +91,11 @@ int main () {
      
         sf::Color color(255,165,0);
         window.clear(color);
-        sys_input.update(entity_manager, eventbus);
+        sys_input.update(entity_manager, eventbus_input);
         //sys_IA.update(entity_manager, eventbus);
         //sys_physics.update(entity_manager, eventbus);
         //sys_collision.update(entity_manager, eventbus);
-        //sys_FSM.update(entity_manager, eventbus);
+        sys_FSM.update(entity_manager, eventbus_input);
         //sys_animation(entity_manager, eventbus);
         sys_text.update(entity_manager, eventbus, window);
         sys_render.update(entity_manager, eventbus, window, resource_manager);

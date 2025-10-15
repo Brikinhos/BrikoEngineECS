@@ -5,21 +5,19 @@
 #include <string>
 #include <unordered_map>
 #include <map>
+#include <vector>
 
 struct ComponentFSM: ecs::Component<ComponentFSM> {
     explicit ComponentFSM (ecs::TypeInt id_entity)
         : Component (id_entity)
     {}    
     //ecs::TypeInt es en realidad std::size_t;
-    using State = std::string;
-    using StateID = ecs::TypeInt;
-    using Transition = std::string;
-    using TransitionID = ecs::TypeInt;
+    using State = EntityState;
+    using Transition = EventTransition;
+    
+    std::unordered_map<State, std::map<Transition, State>> m_FSM_;
+    std::vector<EventTransition> v_transitions;
 
-    std::unordered_map<StateID,      State>      m_states_;
-    std::unordered_map<TransitionID, Transition> m_transitions_;
-    std::unordered_map<StateID, std::map<TransitionID, StateID>> m_FSM_;
-
-    StateID current_state_;
-    StateID last_state_;
+    State current_state_;
+    State last_state_;
 };

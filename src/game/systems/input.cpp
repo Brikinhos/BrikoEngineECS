@@ -2,13 +2,13 @@
 #include "ecs/entitymanager.hpp"
 #include "ecs/eventhandler.hpp"
 #include "game/components/input.hpp"
+#include "game/events/buttonpressed.hpp"
+#include "game/events/buttonreleased.hpp"
 #include <SFML/Window.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <cstddef>
 
-#include "game/events/isbuttonpressed.hpp"
-
-void SystemInput::update (ecs::EntityManager& entity_manager, ecs::EventBus& eventbus) const noexcept {
+void SystemInput::update (ecs::EntityManager& entity_manager, ecs::EventBus& event_bus_input) const noexcept {
     auto& v_input_component = entity_manager.getComponentVectorByType<ComponentInput>();
     for (auto& cmp_input : v_input_component) {
         //Calculamos la dirección en 8 posibles en función de las 4 del teclado o mando
@@ -23,30 +23,50 @@ void SystemInput::update (ecs::EntityManager& entity_manager, ecs::EventBus& eve
         //Registra el estado actual de la entrada
         auto& m_input_state = cmp_input.m_input_state_;
         for (auto& input_state : m_input_state) {
-            input_state.second.first  = input_state.second.second;
+            input_state.second.at(0) = input_state.second.at(1);
             if (input_state.first > GameInput::DOWNRIGHT)
-                input_state.second.second = sf::Keyboard::isKeyPressed(cmp_input.m_bind_keyboard_.at(input_state.first));
+                input_state.second.at(1) = sf::Keyboard::isKeyPressed(cmp_input.m_bind_keyboard_.at(input_state.first));
             else 
-                input_state.second.second = input_state.first == calculated_dir;
+                input_state.second.at(1) = (input_state.first == calculated_dir);
         }
 
-        //Registra las entradas en el buffer
-        //Primero la dirección
-        bool is_button_pressed;
-        if (calculated_dir != GameInput::NOMOVE && (m_input_state.at(calculated_dir).first != m_input_state.at(calculated_dir).second) && m_input_state.at(calculated_dir).second) {
-            cmp_input.buffer_input_.push_back(calculated_dir);
-            is_button_pressed = true;
-        }
-        //Ahora las otras entradas
-        for (std::size_t i = GameInput::DOWNRIGHT + 1; i < m_input_state.size(); ++i) {
-            if (m_input_state.at(static_cast<GameInput>(i)).first != m_input_state.at(static_cast<GameInput>(i)).second && m_input_state.at(static_cast<GameInput>(i)).second) {
-                cmp_input.buffer_input_.push_back(static_cast<GameInput>(i));
-                is_button_pressed = true;
+        auto isButtonPressed = [&m_input_state](GameInput input){
+            return input != GameInput::NOMOVE && (m_input_state.at(input).at(0) == false && m_input_state.at(input).at(1) == true);
+        };
+        
+        auto isButtonReleased = [&m_input_state](GameInput input){
+            return input != GameInput::NOMOVE && (m_input_state.at(input).at(0) == true && m_input_state.at(input).at(1) == false);
+        };
+
+        //Registra si los botones han sido presionados por primera vez o soltados en este frame
+        //Ya de paso esas nuevas pulsaciones las introducimos en el buffer circular
+
+        for (auto& input_state : m_input_state) {
+            if (isButtonPressed(input_state.first)) {
+                m_input_state.at(input_state.first).at(2) = true; 
+                m_input_state.at(input_state.first).at(3) = false; 
+                cmp_input.buffer_input_.push_back(input_state.first);
+            } else if (isButtonReleased(input_state.first)) {
+                m_input_state.at(input_state.first).at(2) = false;
+                m_input_state.at(input_state.first).at(3) = true;
+            } else {
+                m_input_state.at(input_state.first).at(2) = false;
+                m_input_state.at(input_state.first).at(3) = false;
             }
         }
 
-        if (is_button_pressed) {
-            eventbus.emit(EventButtonPressed(cmp_input.getEntityID()));
+        //Emitimos eventos por las pulsaciones
+        for (auto& input_state : m_input_state) {
+            if (input_state.second.at(0) == true && input_state.second.at(1) == false) {
+                event_bus_input.emit(EventButtonReleased(cmp_input.getEntityID(), input_state.first));
+                std::cout << "emit event release button\n";
+            }
+        }
+        for (auto& input_state : m_input_state) {
+            if (input_state.second.at(0) == false && input_state.second.at(1) == true) {
+                event_bus_input.emit(EventButtonPressed(cmp_input.getEntityID(), input_state.first));
+                std::cout << "emit event push button\n";
+            }
         }
     }
 }

@@ -45,6 +45,12 @@ public:
         queue_.emplace_back(std::type_index(typeid(Event)), std::any(ev));
     }
 
+    template<typename Event>
+    void emit(Event&& ev) {
+        queue_.emplace_back(std::type_index(typeid(std::decay_t<Event>)),
+                            std::any(std::forward<Event>(ev)));
+    }
+
     // Procesa todos los eventos encolados
     void processQueue() {
         auto temp = std::move(queue_);
