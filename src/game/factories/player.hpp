@@ -50,28 +50,97 @@ public:
 
     EntityBuilder& withFSM() {
         auto& fsm = entity_manager.addComponent<ComponentFSM>(entity);
-        using s = EntityState;
+        using s_m = StateMove;
+        using s_a = StateAction;
+        using s_c = StateCondition;
         using t = EventTransition;
                
-        fsm.m_FSM_[s::IDLE]    [t::damaged_event_detected]   = s::DAMAGED;
-        fsm.m_FSM_[s::IDLE]    [t::jump_button_pressed]      = s::JUMP;
-        fsm.m_FSM_[s::IDLE]    [t::attack_button_pressed]    = s::ATTACK;
-        fsm.m_FSM_[s::IDLE]    [t::move_button_pressed]      = s::MOVE;
-        fsm.m_FSM_[s::IDLE]    [t::run_move_detected]        = s::RUN;
-        fsm.m_FSM_[s::MOVE]    [t::move_button_released]     = s::IDLE;
-        fsm.m_FSM_[s::MOVE]    [t::attack_button_pressed]    = s::ATTACK;
-        fsm.m_FSM_[s::MOVE]    [t::damaged_event_detected]   = s::DAMAGED;
-        fsm.m_FSM_[s::MOVE]    [t::jump_button_pressed]      = s::JUMP;
-        fsm.m_FSM_[s::MOVE]    [t::run_move_detected]        = s::RUN;
-        fsm.m_FSM_[s::ATTACK]  [t::anim_finished]            = s::IDLE;
-        fsm.m_FSM_[s::ATTACK]  [t::damaged_event_detected]   = s::DAMAGED;
-        fsm.m_FSM_[s::DAMAGED] [t::anim_finished]            = s::IDLE;
-        fsm.m_FSM_[s::JUMP]    [t::damaged_event_detected]   = s::DAMAGED;
-        fsm.m_FSM_[s::JUMP]    [t::entity_on_floor_detected] = s::IDLE;
-        fsm.m_FSM_[s::RUN]     [t::damaged_event_detected]   = s::DAMAGED;
-        fsm.m_FSM_[s::RUN]     [t::attack_button_pressed]    = s::ATTACK;
-        fsm.m_FSM_[s::RUN]     [t::move_button_released]     = s::IDLE;
-        fsm.m_FSM_[s::RUN]     [t::jump_button_pressed]      = s::JUMP;
+        fsm.mm_FSM_[TypeFSM::MOVEMENT] =
+        {
+            {
+                {
+                    static_cast<std::uint8_t>(s_m::IDLE), 
+                    {
+                        {t::move_button_pressed, static_cast<std::uint8_t>(s_m::MOVE)},
+                        {t::jump_button_pressed, static_cast<std::uint8_t>(s_m::JUMP)},
+                        {t::run_move_detected,   static_cast<std::uint8_t>(s_m::RUN)}
+                    },
+                },
+                {
+                    static_cast<std::uint8_t>(s_m::JUMP), 
+                    {
+                        {t::entity_on_floor_detected, static_cast<std::uint8_t>(s_m::IDLE)}
+                    },
+                },
+                {
+                    static_cast<std::uint8_t>(s_m::MOVE), 
+                    {
+
+                        {t::move_button_released, static_cast<std::uint8_t>(s_m::IDLE)},
+                        {t::jump_button_pressed, static_cast<std::uint8_t>(s_m::JUMP)},
+                        {t::run_move_detected,   static_cast<std::uint8_t>(s_m::RUN)}
+                    }
+                },
+                {
+                    static_cast<std::uint8_t>(s_m::RUN), 
+                    {
+
+                        {t::move_button_released, static_cast<std::uint8_t>(s_m::IDLE)},
+                        {t::jump_button_pressed, static_cast<std::uint8_t>(s_m::JUMP)},
+                    }
+                }
+            },
+            static_cast<std::uint8_t>(StateMove::IDLE),
+            static_cast<std::uint8_t>(StateMove::IDLE)
+        };
+
+        fsm.mm_FSM_[TypeFSM::ACTION] =
+        {
+            {
+                {
+                    static_cast<std::uint8_t>(s_a::NONE), 
+                    {
+                        {t::attack_button_pressed, static_cast<std::uint8_t>(s_a::ATTACK)},
+                        {t::use_button_pressed, static_cast<std::uint8_t>(s_a::USE)}
+                    },
+                },
+                {
+                    static_cast<std::uint8_t>(s_a::ATTACK), 
+                    {
+                        {t::anim_finished, static_cast<std::uint8_t>(s_a::NONE)}
+                    },
+                },
+                {
+                    static_cast<std::uint8_t>(s_a::USE), 
+                    {
+
+                        {t::anim_finished, static_cast<std::uint8_t>(s_a::NONE)}
+                    }
+                }
+            },
+            static_cast<std::uint8_t>(StateAction::NONE),
+            static_cast<std::uint8_t>(StateAction::NONE)
+        };
+
+        fsm.mm_FSM_[TypeFSM::CONDITION] =
+        {
+            {
+                {
+                    static_cast<std::uint8_t>(s_c::NONE), 
+                    {
+                        {t::damaged_event_detected, static_cast<std::uint8_t>(s_c::DAMAGED)}
+                    },
+                },
+                {
+                    static_cast<std::uint8_t>(s_c::DAMAGED), 
+                    {
+                        {t::anim_finished, static_cast<std::uint8_t>(s_c::NONE)}
+                    }
+                }
+            },
+            static_cast<std::uint8_t>(StateCondition::NONE),
+            static_cast<std::uint8_t>(StateCondition::NONE)
+        };
         
         return *this;
     }

@@ -1,5 +1,4 @@
 #include "game/systems/rendertext.hpp"
-#include "datastructs/slotmap.hpp"
 #include "ecs/eventhandler.hpp"
 #include "game/components/FSM.hpp"
 #include "game/components/input.hpp"
@@ -59,7 +58,17 @@ std::stringstream SystemRenderText::getSSComponentFSM (ComponentFSM& cmp_FSM) co
     std::stringstream ss;
 
     ss
-    << "Last State: "    << m_state_to_string.at(cmp_FSM.last_state_) << "\n"
-    << "Current State: " << m_state_to_string.at(cmp_FSM.current_state_) << "\n";
+    << "MOVEMENT\n"
+    << "Last State: "    << m_statemove_to_string.at(static_cast<StateMove>(cmp_FSM.mm_FSM_.at(TypeFSM::MOVEMENT).last_state_)) << "\n"
+    << "Current State: "    << m_statemove_to_string.at(static_cast<StateMove>(cmp_FSM.mm_FSM_.at(TypeFSM::MOVEMENT).current_state_)) << "\n"
+    
+    << "ACTION\n"
+    << "Last State: "    << m_stateaction_to_string.at(static_cast<StateAction>(cmp_FSM.mm_FSM_.at(TypeFSM::ACTION).last_state_)) << "\n"
+    << "Current State: "    << m_stateaction_to_string.at(static_cast<StateAction>(cmp_FSM.mm_FSM_.at(TypeFSM::ACTION).current_state_)) << "\n"
+    
+    << "CONDITION\n"
+    << "Last State: "    << m_statecondition_to_string.at(static_cast<StateCondition>(cmp_FSM.mm_FSM_.at(TypeFSM::CONDITION).last_state_)) << "\n"
+    << "Current State: "    << m_statecondition_to_string.at(static_cast<StateCondition>(cmp_FSM.mm_FSM_.at(TypeFSM::CONDITION).current_state_)) << "\n";
+    
     return ss;
 }

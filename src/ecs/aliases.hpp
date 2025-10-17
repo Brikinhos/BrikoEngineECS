@@ -10,22 +10,44 @@ namespace ecs {
     using Coord = std::pair<TypeInt, TypeInt>;   
 }
 
-enum class EntityState {
+enum class TypeFSM {
+    MOVEMENT,
+    ACTION,
+    CONDITION
+};
+
+enum class StateMove {
     IDLE,
     JUMP,
     MOVE,
-    RUN,
+    RUN
+};
+
+enum class StateAction {
+    NONE,
     ATTACK,
+    USE
+};
+
+enum class StateCondition {
+    NONE,
     DAMAGED
 };
 
-const std::unordered_map<EntityState, std::string> m_state_to_string {
-    {EntityState::IDLE,    "IDLE"},
-    {EntityState::JUMP,    "JUMP"},
-    {EntityState::MOVE,    "MOVE"},
-    {EntityState::RUN,     "RUN"},
-    {EntityState::ATTACK,  "ATTACK"},
-    {EntityState::DAMAGED, "DAMAGED"}
+const std::unordered_map<StateMove, std::string> m_statemove_to_string {
+    {StateMove::IDLE,    "IDLE"},
+    {StateMove::JUMP,    "JUMP"},
+    {StateMove::MOVE,    "MOVE"},
+    {StateMove::RUN,     "RUN"},
+};
+const std::unordered_map<StateAction, std::string> m_stateaction_to_string {
+    {StateAction::NONE,   "NONE"},
+    {StateAction::ATTACK, "ATTACK"},
+    {StateAction::USE,    "USE"}
+};
+const std::unordered_map<StateCondition, std::string> m_statecondition_to_string {
+    {StateCondition::NONE,    "NONE"},
+    {StateCondition::DAMAGED, "DAMAGED"}
 };
 
 enum class EventTransition {

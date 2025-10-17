@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/FSM.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.obj.d"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/animation.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj.d"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj.d"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/physics.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj.d"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/render.cpp" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj" "gcc" "CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj.d"

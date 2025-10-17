@@ -153,6 +153,30 @@ src/game/systems/FSM.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.s
 .PHONY : src/game/systems/FSM.cpp.s
 
+src/game/systems/animation.obj: src/game/systems/animation.cpp.obj
+.PHONY : src/game/systems/animation.obj
+
+# target to build an object file
+src/game/systems/animation.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj
+.PHONY : src/game/systems/animation.cpp.obj
+
+src/game/systems/animation.i: src/game/systems/animation.cpp.i
+.PHONY : src/game/systems/animation.i
+
+# target to preprocess a source file
+src/game/systems/animation.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.i
+.PHONY : src/game/systems/animation.cpp.i
+
+src/game/systems/animation.s: src/game/systems/animation.cpp.s
+.PHONY : src/game/systems/animation.s
+
+# target to generate assembly for a file
+src/game/systems/animation.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\BrikoEngineECS.dir\build.make CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.s
+.PHONY : src/game/systems/animation.cpp.s
+
 src/game/systems/input.obj: src/game/systems/input.cpp.obj
 .PHONY : src/game/systems/input.obj
 
@@ -285,6 +309,9 @@ help:
 	@echo ... src/game/systems/FSM.obj
 	@echo ... src/game/systems/FSM.i
 	@echo ... src/game/systems/FSM.s
+	@echo ... src/game/systems/animation.obj
+	@echo ... src/game/systems/animation.i
+	@echo ... src/game/systems/animation.s
 	@echo ... src/game/systems/input.obj
 	@echo ... src/game/systems/input.i
 	@echo ... src/game/systems/input.s

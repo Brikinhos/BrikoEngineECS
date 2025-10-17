@@ -4,6 +4,8 @@ file(REMOVE_RECURSE
   "BrikoEngineECS.pdb"
   "CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.obj"
   "CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.obj.d"
+  "CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj"
+  "CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj.d"
   "CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj"
   "CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj.d"
   "CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj"

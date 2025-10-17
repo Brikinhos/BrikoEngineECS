@@ -5,6 +5,7 @@
 file(GLOB_RECURSE NEW_GLOB LIST_DIRECTORIES false "E:/Proyectos SFML/BrikoEngineECS/src/*.cpp")
 set(OLD_GLOB
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/FSM.cpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/animation.cpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.cpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/physics.cpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/render.cpp"
@@ -28,11 +29,11 @@ set(OLD_GLOB
   "E:/Proyectos SFML/BrikoEngineECS/src/ecs/eventhandler.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/ecs/resourcemanager.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/FSM.hpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/components/animation.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/collision.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/input.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/position.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/sprite.hpp"
-  "E:/Proyectos SFML/BrikoEngineECS/src/game/components/state.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/textinfo.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/components/velocity.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/events/buttonpressed.hpp"
@@ -40,6 +41,7 @@ set(OLD_GLOB
   "E:/Proyectos SFML/BrikoEngineECS/src/game/events/statechanged.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/factories/player.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/FSM.hpp"
+  "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/animation.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/input.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/physics.hpp"
   "E:/Proyectos SFML/BrikoEngineECS/src/game/systems/render.hpp"

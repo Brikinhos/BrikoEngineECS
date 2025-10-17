@@ -1,6 +1,5 @@
 #pragma once
 #include "ecs/aliases.hpp"
-#include "game/components/input.hpp"
 
 struct EventButtonPressed {
     EventButtonPressed (ecs::TypeInt entity, GameInput input) 

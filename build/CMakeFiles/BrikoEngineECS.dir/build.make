@@ -86,11 +86,26 @@ CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.s"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "E:\Proyectos SFML\BrikoEngineECS\src\game\systems\FSM.cpp" -o CMakeFiles\BrikoEngineECS.dir\src\game\systems\FSM.cpp.s
 
+CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj: CMakeFiles/BrikoEngineECS.dir/flags.make
+CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj: CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp
+CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj: E:/Proyectos\ SFML/BrikoEngineECS/src/game/systems/animation.cpp
+CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj: CMakeFiles/BrikoEngineECS.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj -MF CMakeFiles\BrikoEngineECS.dir\src\game\systems\animation.cpp.obj.d -o CMakeFiles\BrikoEngineECS.dir\src\game\systems\animation.cpp.obj -c "E:\Proyectos SFML\BrikoEngineECS\src\game\systems\animation.cpp"
+
+CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.i"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "E:\Proyectos SFML\BrikoEngineECS\src\game\systems\animation.cpp" > CMakeFiles\BrikoEngineECS.dir\src\game\systems\animation.cpp.i
+
+CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.s"
+	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "E:\Proyectos SFML\BrikoEngineECS\src\game\systems\animation.cpp" -o CMakeFiles\BrikoEngineECS.dir\src\game\systems\animation.cpp.s
+
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj: CMakeFiles/BrikoEngineECS.dir/flags.make
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj: CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj: E:/Proyectos\ SFML/BrikoEngineECS/src/game/systems/input.cpp
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj: CMakeFiles/BrikoEngineECS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj -MF CMakeFiles\BrikoEngineECS.dir\src\game\systems\input.cpp.obj.d -o CMakeFiles\BrikoEngineECS.dir\src\game\systems\input.cpp.obj -c "E:\Proyectos SFML\BrikoEngineECS\src\game\systems\input.cpp"
 
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.i: cmake_force
@@ -105,7 +120,7 @@ CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj: CMakeFiles/Briko
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj: CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj: E:/Proyectos\ SFML/BrikoEngineECS/src/game/systems/physics.cpp
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj: CMakeFiles/BrikoEngineECS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj -MF CMakeFiles\BrikoEngineECS.dir\src\game\systems\physics.cpp.obj.d -o CMakeFiles\BrikoEngineECS.dir\src\game\systems\physics.cpp.obj -c "E:\Proyectos SFML\BrikoEngineECS\src\game\systems\physics.cpp"
 
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.i: cmake_force
@@ -120,7 +135,7 @@ CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj: CMakeFiles/BrikoE
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj: CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj: E:/Proyectos\ SFML/BrikoEngineECS/src/game/systems/render.cpp
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj: CMakeFiles/BrikoEngineECS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj -MF CMakeFiles\BrikoEngineECS.dir\src\game\systems\render.cpp.obj.d -o CMakeFiles\BrikoEngineECS.dir\src\game\systems\render.cpp.obj -c "E:\Proyectos SFML\BrikoEngineECS\src\game\systems\render.cpp"
 
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.i: cmake_force
@@ -135,7 +150,7 @@ CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj: CMakeFiles/Br
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj: CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj: E:/Proyectos\ SFML/BrikoEngineECS/src/game/systems/rendertext.cpp
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj: CMakeFiles/BrikoEngineECS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.obj -MF CMakeFiles\BrikoEngineECS.dir\src\game\systems\rendertext.cpp.obj.d -o CMakeFiles\BrikoEngineECS.dir\src\game\systems\rendertext.cpp.obj -c "E:\Proyectos SFML\BrikoEngineECS\src\game\systems\rendertext.cpp"
 
 CMakeFiles/BrikoEngineECS.dir/src/game/systems/rendertext.cpp.i: cmake_force
@@ -150,7 +165,7 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: CMakeFiles/BrikoEngineECS.dir/fl
 CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: CMakeFiles/BrikoEngineECS.dir/includes_CXX.rsp
 CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: E:/Proyectos\ SFML/BrikoEngineECS/src/main.cpp
 CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj: CMakeFiles/BrikoEngineECS.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj"
 	C:\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BrikoEngineECS.dir/src/main.cpp.obj -MF CMakeFiles\BrikoEngineECS.dir\src\main.cpp.obj.d -o CMakeFiles\BrikoEngineECS.dir\src\main.cpp.obj -c "E:\Proyectos SFML\BrikoEngineECS\src\main.cpp"
 
 CMakeFiles/BrikoEngineECS.dir/src/main.cpp.i: cmake_force
@@ -164,6 +179,7 @@ CMakeFiles/BrikoEngineECS.dir/src/main.cpp.s: cmake_force
 # Object files for target BrikoEngineECS
 BrikoEngineECS_OBJECTS = \
 "CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.obj" \
+"CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj" \
 "CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj" \
 "CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj" \
 "CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj" \
@@ -174,6 +190,7 @@ BrikoEngineECS_OBJECTS = \
 BrikoEngineECS_EXTERNAL_OBJECTS =
 
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/src/game/systems/FSM.cpp.obj
+BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/src/game/systems/animation.cpp.obj
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/src/game/systems/input.cpp.obj
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/src/game/systems/physics.cpp.obj
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/src/game/systems/render.cpp.obj
@@ -188,7 +205,7 @@ BrikoEngineECS.exe: E:/Proyectos\ SFML/BrikoEngineECS/lib/SFML-3.0.2/lib/libsfml
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/linkLibs.rsp
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/objects1.rsp
 BrikoEngineECS.exe: CMakeFiles/BrikoEngineECS.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable BrikoEngineECS.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="E:\Proyectos SFML\BrikoEngineECS\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable BrikoEngineECS.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\BrikoEngineECS.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
